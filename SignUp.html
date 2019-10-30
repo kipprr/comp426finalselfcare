@@ -16,29 +16,32 @@
 <section class="hero is-fullheight is-dark">
     <div class="hero-body">
         <div class="container">
+            <figure>
+                <img  class="is-rounded " id = logosmall src="images/logo.png" alt="Placeholder image">
+            </figure>
             <h1 class="title">
                 Sign Up
             </h1>
                 <form>
                     <div class="field">
-                            <figure class="image is-130x130">
-                                    <img class="is-rounded " src="images/logo.png" alt="Placeholder image">
-                               </figure>
+                            
+                                    
+                            
                         <label class="label">Username</label>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Cookie Monster 2.0" name="username">
+                            <input class="input" type="text" placeholder="Enter Name" name="username">
                         </div>
                     </div>
                     <div class="field">
                         <label class="label">Password</label>
                         <div class="control">
-                            <input class="input" type="password" placeholder="password12345">
+                            <input class="input" type="password" placeholder="Enter Password">
                         </div>
                     </div>
                     <div class="field">
                         <label class="label">Repeat Password</label>
                         <div class="control">
-                            <input class="input" type="password" placeholder="password12345" name="password">
+                            <input class="input" type="password" placeholder="Re-Enter Password" name="password">
                         </div>
                     </div>
 
@@ -54,11 +57,12 @@
                         </div>
                     </div>
 
-                    <div class="field">
-                        <div class="control">
-                            <input class="button is-dark" type="submit"/>
+                    <div class="field is-grouped is-grouped-right">
+                            <div class="control">
+                            <button class=" button is-medium  is-danger CancelButton" type="cancel" value="Cancel">Cancel</button>
+                            <button class=" button is-medium  is-danger SubmitButton" type="submit"  value="Save">Submit</button>
+                            </div>
                         </div>
-                    </div>
                 </form>
             </div>
         </div>
