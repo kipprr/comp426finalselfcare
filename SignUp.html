@@ -6,64 +6,15 @@
     <link rel="stylesheet" href="node_modules/bulma/css/bulma.css" />
     <link rel="stylesheet" href="custom_style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet">
-    <title>Assignment 2</title>
+    <title>Sign Up</title>
 </head>
 <body>
-        <script src="node_modules/jquery/dist/jquery.js"></script>
-  
-        <script src="comp426-backend-master/data/DataStore.js" type="module"></script>
-        <script src="render.js" type="module"></script>
-<section class="hero is-fullheight is-dark">
-    <div class="hero-body">
-        <div class="container">
-            <figure>
-                <img  class="is-rounded " id = logosmall src="images/logo.png" alt="Placeholder image">
-            </figure>
-            <h1 class="title">
-                Sign Up
-            </h1>
-                <form>
-                    <div class="field">
-                        <label class="label">Username</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Enter Name" name="username">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Password</label>
-                        <div class="control">
-                            <input class="input" type="password" placeholder="Enter Password">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Repeat Password</label>
-                        <div class="control">
-                            <input class="input" type="password" placeholder="Re-Enter Password" name="password">
-                        </div>
-                    </div>
+    <div id="root"></div>
+    <script src="comp426-backend-master/data/DataStore.js" type="module"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="render.js" type="module" ></script>
+    </body>
 
-                    <div class="field">
-                        <label class="label">Account type</label>
-                        <div class="control">
-                            <div class="select">
-                                <select name="accountType">
-                                    <option>Student</option>
-                                    <option>Teacher</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="field is-grouped is-grouped-right">
-                            <div class="control">
-                            <button class=" button is-medium  is-danger CancelButton" type="cancel" value="Cancel">Cancel</button>
-                            <button class=" button is-medium  is-danger SubmitButton" type="submit"  value="Save">Submit</button>
-                            </div>
-                        </div>
-                </form>
-            </div>
-        </div>
-    
-</section>
 </body>
 </html>
