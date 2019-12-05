@@ -14,6 +14,32 @@
  *     the hero's name, information, and colors.
  * @param hero  A hero object (see data.js)
  */
+import axios from 'axios';
+
+const pubRoot = new axios.create({
+  baseURL: "http://localhost:3000/public"
+});
+
+async function createAuthor({first = 'John', last = 'Doe', numBooks = 0}) {
+  return await pubRoot.post(`/authors/`, {
+    data: {first, last, numBooks}
+  })
+}
+
+async function getAllAuthors() {
+  return await pubRoot.get('/authors');
+}
+
+(async () => {
+  await createAuthor({
+    first: "chris",
+    numBooks: 4
+  });
+
+  let {data} = await getAllAuthors();
+  console.log(data)
+})();
+
 export const renderHeroCard = function(hero) 
 {
     // TODO: Copy your code from a04 to render the hero card
@@ -210,21 +236,6 @@ export const loadHeroesIntoDOM = function(heroes) {
     // Grab a jQuery reference to the root HTML element
     const $root = $('#root');
 
-    // TODO: Generate the heroes using renderHeroCard()
-    //       NOTE: Copy your code from a04 for this part
-    let heroArray = [];
-    for(let i=0; i<heroes.length;i++)
-    {
-        //console.log(heroes[i]);
-        heroArray[i]= renderHeroCard(heroes[i]);
-    }
-   
-    // TODO: Append the hero cards to the $root element
-    //       NOTE: Copy your code from a04 for this part
-    $root.append(heroArray);
-    // TODO: Use jQuery to add handleEditButtonPress() as an event handler for
-    //       clicking the edit button
-    $root.on("click",".EditButton",handleEditButtonPress);
     // TODO: Use jQuery to add handleEditFormSubmit() as an event handler for
     //       submitting the form
     $root.on("click",".SubmitButton",handleEditFormSubmit);
