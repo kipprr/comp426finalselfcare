@@ -1,112 +1,127 @@
-
-export async function headerTweet () 
-{
-    const $root = $('#root');
-    let tweets= `
-    <section class="hero is-fullheight is-dark">
-    <div class="hero-body">
-        <div class="container">
-            <figure>
-                <img  class="is-rounded " id = logosmall src="images/logo.png" alt="Placeholder image">
-            </figure>
-            <h1 class="title">
-                Sign Up
-            </h1>
-                <form>
-                    <div class="field">
-                        <label class="label">Username</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Enter Name" name="username">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Password</label>
-                        <div class="control">
-                            <input class="input" type="password" placeholder="Enter Password">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Repeat Password</label>
-                        <div class="control">
-                            <input class="input" type="password" placeholder="Re-Enter Password" name="password">
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Account type</label>
-                        <div class="control">
-                            <div class="select">
-                                <select name="accountType">
-                                    <option>Student</option>
-                                    <option>Teacher</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="field is-grouped is-grouped-right">
-                            <div class="control">
-                            <button class=" button is-medium  is-danger CancelButton" type="cancel" value="Cancel">Cancel</button>
-                            <button class=" button is-medium  is-danger SubmitButton" type="submit"  value="Save">Submit</button>
-                            </div>
-                        </div>
-                </form>
-            </div>
-        </div>
-    
-</section>
-    `;
-    $root.append(tweets);
-}
-export async function renderTweets(event) 
-{
-    event.preventDefault();
-const $root = $('#root');
-      const response = await axios({
-        method: 'POST',
+$(function() {
+    const $form = $('#signup-form');
+    const $message = $('#message');
+  
+    $form.submit(function(event) {
+      event.preventDefault();
+  
+      $message.html('');
+  
+      const data2 = $form.serialize();
+      console.log(data2);
+      
+      $.ajax({
         url: 'http://localhost:3000/account/create',
-        data: {
-            "name": username,
-            "pass": password,
-            "data": {
-                "firstname": firstname
-            }
-        }
-    });
-    $root.append(tweets);
-}
-
-
-/*export async function writeTweets(event) 
-{
-    event.preventDefault();
-    const result = await axios({
-        method: 'post',
-        url: 'https://comp426fa19.cs.unc.edu/a09/tweets',
-        data:
-        {
-            "type": "tweet",
-            "body":  "" + $("textarea[id=offtweets]").val() + "",
-        },
+        type: 'POST',
+        data: data2,
         withCredentials: true,
+
+        
+      }).then(() => {
+        $message.html('<span class="has-text-success">Success! You are now logged in.</span>');
+      }).catch(() => {
+        $message.html('<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>');
       });
-      $('#tweeter').replaceWith(renderTweets());
-
-}
-*/
-
-export const renderSite = function()
- {
-    const $root = $('#root');
-   
-    headerTweet();
-   // postTweets();
-   $(document).on("submit", ".SubmitButton",   renderTweets);
- 
-
-    
-}
-$(function () 
-{
-    renderSite();
+    });
+  });
+  function onSignIn(googleUser) 
+  {
+    var profile = googleUser.getBasicProfile();
+    //document.getElementById("demo").innerHTML ='Full Name: ' + profile.getName();
+    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail());
+$.ajax({
+  url: 'http://localhost:3000/account/create',
+  type: 'POST',
+  data:
+  {
+    "name":profile.getName(),
+    "pass":"1234"
+  } ,
+  withCredentials: true,
 });
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("ID Token: " + id_token);
+    var xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://http://localhost:3000/account/create');
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.onload = function() {
+console.log('Signed in as: ' + xhr.responseText);
+};
+    // Useful data for your client-side scripts:
+    var profile1 = googleUser.getBasicProfile();
+    //document.getElementById("demo").innerHTML ='Full Name: ' + profile.getName();
+    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail());
+$.ajax({
+  url: 'http://localhost:3000/account/login',
+  type: 'POST',
+  data:
+  {
+    "name":profile1.getName(),
+    "pass":"1234"
+  } ,
+  withCredentials: true,
+});
+    // The ID token you need to pass to your backend:
+    var id_token1 = googleUser.getAuthResponse().id_token;
+    console.log("ID Token: " + id_token1);
+    var xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://http://localhost:3000/account/login');
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.onload = function() {
+console.log('Signed in as: ' + xhr.responseText);
+};
+
+// xhr.send('idtoken=' + id_token);
+}
+
+function onSignUp(googleUser) 
+  {
+    // Useful data for your client-side scripts:
+    var profile = googleUser.getBasicProfile();
+    //document.getElementById("demo").innerHTML ='Full Name: ' + profile.getName();
+    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail());
+$.ajax({
+  url: 'http://localhost:3000/account/create',
+  type: 'POST',
+  data:
+  {
+    "name":profile.getName(),
+    "pass":"1234"
+  } ,
+  withCredentials: true,
+});
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("ID Token: " + id_token);
+    var xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://http://localhost:3000/account/create');
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.onload = function() {
+console.log('Signed in as: ' + xhr.responseText);
+};
+// xhr.send('idtoken=' + id_token);
+}
+
+function signOut() 
+{
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    console.log('User signed out.');
+  });
+}

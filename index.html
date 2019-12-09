@@ -20,51 +20,124 @@
      
       <button class="button is-link is-outlined is-center" onclick="window.location.href = 'SignUp.html';">Sign Up </button>
 
-      
+      <div class="g-signin2" data-onsuccess="onSignUp"></div>
+      <span><p >Sign Up!</p></span>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <span><p >Sign in!</p></span>
       <script>
         function onSignIn(googleUser) {
           // Useful data for your client-side scripts:
           var profile = googleUser.getBasicProfile();
-          document.getElementById("demo").innerHTML ='Full Name: ' + profile.getName();
+          //document.getElementById("demo").innerHTML ='Full Name: ' + profile.getName();
           console.log("ID: " + profile.getId()); // Don't send this directly to your server!
           console.log('Full Name: ' + profile.getName());
           console.log('Given Name: ' + profile.getGivenName());
           console.log('Family Name: ' + profile.getFamilyName());
           console.log("Image URL: " + profile.getImageUrl());
           console.log("Email: " + profile.getEmail());
-         
+
+          
+      //const data = $form.serialize();
+      
+      $.ajax({
+        url: 'http://localhost:3000/account/login',
+        type: 'POST',
+        data:
+        {
+          "name":profile.getName(),
+          "pass":"1234"
+        } ,
+        withCredentials: true,
+      });
           // The ID token you need to pass to your backend:
           var id_token = googleUser.getAuthResponse().id_token;
           console.log("ID Token: " + id_token);
           var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://http://localhost:3001/tokensignin');
+  xhr.open('POST', 'https://http://localhost:3000/account/login');
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.onload = function() {
   console.log('Signed in as: ' + xhr.responseText);
     };
-  xhr.send('idtoken=' + id_token);
+ // xhr.send('idtoken=' + id_token);
         }
-       
-        
+
+      </script>
+
+<script>
+  function onSignUp(googleUser) {
+    // Useful data for your client-side scripts:
+    var profile = googleUser.getBasicProfile();
+    //document.getElementById("demo").innerHTML ='Full Name: ' + profile.getName();
+    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail());
+
+    
+//const data = $form.serialize();
+
+$.ajax({
+  url: 'http://localhost:3000/account/create',
+  type: 'POST',
+  data:
+  {
+    "name":profile.getName(),
+    "pass":"1234"
+  } ,
+  withCredentials: true,
+});
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("ID Token: " + id_token);
+    var xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://http://localhost:3000/account/create');
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.onload = function() {
+console.log('Signed up as: ' + xhr.responseText);
+};
+// xhr.send('idtoken=' + id_token);
+  }
+  
+
+
+  
+</script>
+
+      
+      <a href="#" onclick="signOut();">Sign out</a>
+      <script>
+        function signOut() {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function () {
+            console.log('User signed out.');
+          });
+        }
       </script>
 
       </div>
-      <div class="g-signin2" data-onsuccess="onSignIn"></div>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/7.5.0/firebase-app.js"></script>
+      
+  
+
+  <!-- The core Firebase JS SDK is always required and must be listed first 
+  <script src="/__/firebase/7.5.0/firebase-app.js"></script>-->
+
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/7.5.0/firebase-analytics.js"></script>
+     https://firebase.google.com/docs/web/setup#available-libraries 
+    <script src="/__/firebase/7.5.0/firebase-analytics.js"></script>-->
 
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+
+<!-- Initialize Firebase 
+<script src="/__/firebase/init.js"></script>-->
+
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
   
-  <script src="render.js" type="module"></script>
+  <!--<script src="render.js" type="module"></script>-->
   </div>
   
 </body>

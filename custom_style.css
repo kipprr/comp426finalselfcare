@@ -72,4 +72,8 @@ hr{
   margin: 4px 2px;
   cursor: pointer;
 }
+span{
+    font-size: 18px;
+    text-align: center;
+}
 
