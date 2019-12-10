@@ -19,6 +19,7 @@ $(function() {
         
       }).then(() => {
         $message.html('<span class="has-text-success">Success! You are now signed up in.</span>');
+        location.href=("Login.html")
       }).catch(() => {
         $message.html('<span class="has-text-danger">Something went wrong and you were not signed up in. Check your email and password and your internet connection.</span>');
       });

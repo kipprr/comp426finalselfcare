@@ -14,43 +14,48 @@
         <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet"> 
 
     </head>
+    <style>
+            body {
+              background-image: url('images/balls.jpeg');
+            }
+            </style>
     <body>
     
             
-    <div id="login">
-            <div class="login-card">
-                <div class="card-title">
-                    <h1>Project Sign in</h1>
-                </div>
-
-                <div class="content">
-                    <form id="signin-form">
-                        <input class="input" id="name" type="name"  name="name" title="name" placeholder="username" required autofocus>
-                        <input class="input" id="pass" type="password" name="pass" title="pass" placeholder="Password" required>
-
-                        <div class="field">
-                            <div class="control">
-                                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                                <button type="submit" class="btn btn-primary">Sign in</button>
-                                <a href="#" onclick="signOut();">Sign out</a>
-                            </div>
+            <div id="login">
+            
+                    <div class="login-card">
+                        <div class="card-title">
+                            <h1>Member Sign in</h1>
                         </div>
-                        <div>
-
-                        </div>
-
-                        <div class="field">
-                            <div class="control">
-                                <p id="message1"></p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                
-            </div> 
-
-            <img id="logo"  src="images/xmas tree.jpg" />
         
+                        <div class="content">
+                            <form id="signin-form">
+                                <input class="input" id="name" type="name"  name="name" title="name" placeholder="username" required autofocus>
+                                <input class="input" id="pass" type="password" name="pass" title="pass" placeholder="Password" required>
+        
+                                <div class="field">
+                                    <div class="control">
+                                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                        <a href="#" onclick="signOut();">Sign out</a>
+                                    </div>
+                                </div>
+                                <div>
+        
+                                </div>
+        
+                                <div class="field">
+                                    <div class="control">
+                                        <p id="message1"></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div> 
+                    <div style="background-image: url('images/xmas_tree.png');"></div>
+           
         
         
 
