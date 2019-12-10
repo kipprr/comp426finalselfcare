@@ -8,7 +8,7 @@ var currentTweetForReply = 0;
 const get50Tweets = async function() {
     const result = await axios({
         method: 'get',
-        url: 'https://comp426fa19.cs.unc.edu/a09/tweets',
+        url: 'http://localhost:3000/public/movies',
         withCredentials: true,
     });
     return result;
@@ -592,7 +592,7 @@ const handleTweet = async function() {
     $('#createTweetModal').removeClass("is-active");
     const result = await axios({
         method: 'post',
-        url: 'https://comp426fa19.cs.unc.edu/a09/tweets',
+        url: 'http://localhost:3000/public/movies',
         withCredentials: true,
         data: {
           body: bodyValue
@@ -765,16 +765,16 @@ const loadTweetsIntoDOM = async function() {
 
     const $tweetStart = $('#tweets');
     
-    const result = await axios({
-        method: 'get',
-        url: 'https://comp426fa19.cs.unc.edu/a09/tweets',
-        withCredentials: true,
-    });
+    // const result = await axios({
+    //     method: 'get',
+    //     url: 'http://localhost:3000/public/movies',
+    //     withCredentials: true,
+    // });
 
     var tweetsString = '';
-    for (var i = 0; i < 50; i++) {
-        tweetsString += renderTweet(result.data[i]);
-    }
+    // for (var i = 0; i < 50; i++) {
+    //     tweetsString += renderTweet(result.data[i]);
+    // }
 
     $tweetStart.html(tweetsString);
 
