@@ -35,23 +35,29 @@ $(function() {
   
       const data2 = $form.serialize();
       console.log(data2);
-      
+      let res = {};
       $.ajax({
         url: 'http://localhost:3000/account/login',
         type: 'POST',
         data: data2,
         withCredentials: true,
+        success: function(data){
+            res=data;
+        }
 
         
       }).then(() => {
         $message.html('<span class="has-text-success">Success! You are now logged in.</span>');
+        sessionStorage.setItem('user', res.name);
+        sessionStorage.setItem('jwt',  res.jwt);
         location.href=("journal.html");
       }).catch(() => {
         $message.html('<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>');
       });
     });
   });
- 
+  
+  
   
   function onSignIn(googleUser) 
   {
@@ -109,6 +115,7 @@ xhr.open('POST', 'https://http://localhost:3000/account/login');
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 xhr.onload = function() {
 console.log('Signed in as: ' + xhr.responseText);
+location.href=("journal.html");
 };
 
 // xhr.send('idtoken=' + id_token);
@@ -126,7 +133,7 @@ function onSignUp(googleUser)
     console.log("Image URL: " + profile.getImageUrl());
     console.log("Email: " + profile.getEmail());
 $.ajax({
-  url: 'http://localhost:3000/account/create',
+  url: 'http://localhost:3000/account/login',
   type: 'POST',
   data:
   {
