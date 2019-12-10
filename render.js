@@ -18,6 +18,32 @@ $(function() {
 
         
       }).then(() => {
+        $message.html('<span class="has-text-success">Success! You are now signed up in.</span>');
+      }).catch(() => {
+        $message.html('<span class="has-text-danger">Something went wrong and you were not signed up in. Check your email and password and your internet connection.</span>');
+      });
+    });
+  });
+  $(function() {
+    const $form = $('#signin-form');
+    const $message = $('#message1');
+  
+    $form.submit(function(event) {
+      event.preventDefault();
+  
+      $message.html('');
+  
+      const data2 = $form.serialize();
+      console.log(data2);
+      
+      $.ajax({
+        url: 'http://localhost:3000/account/login',
+        type: 'POST',
+        data: data2,
+        withCredentials: true,
+
+        
+      }).then(() => {
         $message.html('<span class="has-text-success">Success! You are now logged in.</span>');
       }).catch(() => {
         $message.html('<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>');

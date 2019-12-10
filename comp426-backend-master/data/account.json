@@ -56,6 +56,12 @@
     },
     "kipp": {
       "passwordHash": "$2a$10$WNUaWwvMcMfAEpgT.XDDyuWIX96a6fic2cCExQzLDeNBVFrwfHtY."
+    },
+    "beee": {
+      "passwordHash": "$2a$10$g2Pt3z37M25PetVCupxeLuTOLSc5jzr/mfUdr7cF39IAksJEl8JU6"
+    },
+    "berbre": {
+      "passwordHash": "$2a$10$Fa71q1labuNHUF/H52u2QuSM72TruXKgi/FMKInxfn/9HOaBaRaP2"
     }
   }
 }
