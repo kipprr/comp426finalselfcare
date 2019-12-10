@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.css" />
+    <link rel = "stylesheet" href = "journalStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet">
+    <title>YourJournal</title>
+</head>
+
+
+<body>
+    <div id = "root">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div id="journalNavbar" class="navbar-menu">
+            <div class="navbar-start">
+            <a class="navbar-item">
+                <span class = "title is-1">
+                    Your Journal
+                </span>
+            </a>
+            <a class="navbar-item createNew">
+                <div class = "buttons">
+                    <a class = "button is-primary createNewButton">
+                     <span class = "title is-4">
+                        Create New Entry                
+                    </span>
+                    </a>
+                </div>
+               
+            </a>
+            </div>
+            <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                <a class="button is-link"onclick="window.location.href = 'homepage.html';">
+                    <strong>Return Home</strong>
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </nav>
+        <br>
+        <div class = "columns is-mobile">
+            <div class = "column is-10 is-offset-1">
+                <div class = "tile is-ancestor journalTiles">
+                    <div class = "tile is-4 is-parent">
+                        <a class = "tile is-child box" id="JournalButton">
+                            <!--<div class = "tile is-child box"> -->
+                                <h1 class = "title is-4">
+                                    Welcome to Your Journal!
+                                </h1>
+                                <p class = "subtitle">
+                                    Click here to get started.
+                                </p>
+                        <!-- </div> -->
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="myModal">
+        <span class="close">&times;</span>
+            <div class="modal-background"></div>
+            <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Modal title</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Content ... -->
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success saveButton">Save</button>
+                <button class="button cancelButton">Cancel</button>
+            </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+ </html>
+
+
