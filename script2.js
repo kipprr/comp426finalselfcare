@@ -5,14 +5,51 @@ var loadCounter = 0;
 var currentTweetForEdit = 0;
 var currentTweetForReply = 0;
 
-const get50Tweets = async function() {
+const getMovie = async function() {
     const result = await axios({
         method: 'get',
-        url: 'https://comp426fa19.cs.unc.edu/a09/tweets',
+        url: 'http://localhost:3000/public/movie',
         withCredentials: true,
     });
     return result;
 };
+
+const renderMovie = function(tweet) {
+        return `<div class="container tweet" style="padding-bottom: 20px">
+        <div class="card">
+                <div class="card-content" style="padding-bottom: 10px; padding-top: 20px">
+                    <div class="media-content">
+                      <p class="title is-4 tweetName">xx</p>
+                    </div>
+                </div>
+                <div class="container tweetText" style="padding-left: 25px; padding-right: 20px; padding-bottom: 0px; padding-top: 0px">
+                    xxx
+                </div>
+                <div class="container" style="padding-left: 25px; padding-bottom: 20px; padding-top: 10px; padding-right: 20px">
+                    <div class="level">
+                        <div class="level-left">
+                            <div class="level-item">
+                            <p class="content"><span class="tweetLikeNumber" style="color: #c81b1b">xx</span></p>  
+                            </div>
+                            <div class="level-item">
+                                <figure class="image is-24x24 tweetUnLikeButton" >
+                                        <img src="images/heart-full-64.png"  alt="Not liked by you button">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="level-right">
+                                <div class="level-item">
+
+                                </div>
+                            </div>
+    
+                    </div>
+                </div>
+              </div>
+    </div>`;
+}
+
+
 
 const renderTweet = function(tweet) {
     // Renders a single tweet that gets passed in
@@ -37,7 +74,7 @@ const renderTweet = function(tweet) {
                             </div>
                             <div class="level-item">
                                 <figure class="image is-24x24 tweetUnLikeButton" id="${tweet.id}LikeButton">
-                                        <img src="images1/heart-full-64.png" id="${tweet.id}LikeButton" alt="Not liked by you button">
+                                        <img src="images/heart-full-64.png" id="${tweet.id}LikeButton" alt="Not liked by you button">
                                 </figure>
                             </div>
                             <div class="level-item">
@@ -590,14 +627,23 @@ const handleCancelTweet = function() {
 const handleTweet = async function() {
     var bodyValue = $('#postTweetBody').val();
     $('#createTweetModal').removeClass("is-active");
-    const result = await axios({
-        method: 'post',
-        url: 'https://comp426fa19.cs.unc.edu/a09/tweets',
-        withCredentials: true,
+    // const result = await axios({
+    //     method: 'post',
+    //     url: 'http://localhost:3000/public/movie',
+    //     withCredentials: true,
+    //     data: {
+    //         "data": "bnfghn"
+    //     } 
+        
+    //   });
+    $.ajax({
+        url: 'http://localhost:3000/public/movie',
+        type: 'POST',
         data: {
-          body: bodyValue
+            "data": bodyValue
         },
-      });
+        withCredentials: true,
+    });
     loadTweetsIntoDOM();
 };
 
@@ -765,16 +811,15 @@ const loadTweetsIntoDOM = async function() {
 
     const $tweetStart = $('#tweets');
     
-    const result = await axios({
-        method: 'get',
-        url: 'https://comp426fa19.cs.unc.edu/a09/tweets',
+
+    const result = $.ajax({
+        url: 'http://localhost:3000/public/movie',
+        type: 'GET',
         withCredentials: true,
     });
 
     var tweetsString = '';
-    for (var i = 0; i < 50; i++) {
-        tweetsString += renderTweet(result.data[i]);
-    }
+    tweetsString = renderMovie(result.data);
 
     $tweetStart.html(tweetsString);
 
