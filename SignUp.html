@@ -1,69 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="node_modules/bulma/css/bulma.css" />
-    <link rel="stylesheet" href="custom_style.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet">
-    <title>Assignment 2</title>
-</head>
-<body>
-        <script src="node_modules/jquery/dist/jquery.js"></script>
-  
-        <script src="data.js" type="module"></script>
-        <script src="render.js" type="module"></script>
-<section class="hero is-fullheight is-dark">
-    <div class="hero-body">
-        <div class="container">
-            <figure>
-                <img  class="is-rounded " id = logosmall src="images/logo.png" alt="Placeholder image">
-            </figure>
-            <h1 class="title">
-                Sign Up
-            </h1>
-                <form>
-                    <div class="field">
-                        <label class="label">Username</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Enter Name" name="username">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Password</label>
-                        <div class="control">
-                            <input class="input" type="password" placeholder="Enter Password">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Repeat Password</label>
-                        <div class="control">
-                            <input class="input" type="password" placeholder="Re-Enter Password" name="password">
-                        </div>
-                    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-signin-client_id" content="497688146905-7vr5q3e3dmtb3r8tqfc6t9gbjm2eg719.apps.googleusercontent.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login to COMP 426</title>
 
-                    <div class="field">
-                        <label class="label">Account type</label>
-                        <div class="control">
-                            <div class="select">
-                                <select name="accountType">
-                                    <option>Student</option>
-                                    <option>Teacher</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Include links to CSS stylesheets below -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+        <link rel="stylesheet" href="stylesheet.css" />
+        <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet"> 
 
-                    <div class="field is-grouped is-grouped-right">
+    </head>
+
+    <body>
+        <div id="login">
+            <div class="login-card">
+                <div class="card-title">
+                    <h1>Project Sign up</h1>
+                </div>
+
+                <div class="content">
+                    <form id="signup-form">
+                        <input class="input" id="name" type="name"  name="name" title="name" placeholder="username" required autofocus>
+                        <input class="input" id="pass" type="password" name="pass" title="pass" placeholder="Password" required>
+
+                        <div class="field">
                             <div class="control">
-                            <button class=" button is-medium  is-danger CancelButton" type="cancel" value="Cancel">Cancel</button>
-                            <button class=" button is-medium  is-danger SubmitButton" type="submit"  value="Save">Submit</button>
+                                <div class="g-signin2" data-onsuccess="onSignUp"></div>
+                                <button type="submit" class="btn btn-primary">Sign Up</button>
+                                <a href="#" onclick="signOut();">Sign out</a>
                             </div>
                         </div>
-                </form>
+
+                        <div class="field">
+                            <div class="control">
+                                <p id="message"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    
-</section>
-</body>
+
+            <body>
+        <div id="login">
+            <div class="login-card">
+                <div class="card-title">
+                    <h1>Project Sign up</h1>
+                </div>
+
+                <div class="content">
+                    <form id="signup-form">
+                        <input class="input" id="name" type="name"  name="name" title="name" placeholder="username" required autofocus>
+                        <input class="input" id="pass" type="password" name="pass" title="pass" placeholder="Password" required>
+
+                        <div class="field">
+                            <div class="control">
+                                <div class="g-signin2" data-onsuccess="onSignUp"></div>
+                                <button type="submit" class="btn btn-primary">Sign Up</button>
+                                <a href="#" onclick="signOut();">Sign out</a>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <p id="message"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="login">
+                    <div class="login-card">
+                        <div class="card-title">
+                            <h1>Project Log In</h1>
+                        </div>
+        
+                        <div class="content">
+                            <form id="login-form">
+                                <input class="input" id="name" type="name"  name="name" title="name" placeholder="username" required autofocus>
+                                <input class="input" id="pass" type="password" name="pass" title="pass" placeholder="Password" required>
+        
+                                <div class="field">
+                                    <div class="control">
+                                        <div class="g-signin2" data-onsuccess="onSignUp"></div>
+                                        <button type="submit" class="btn btn-primary">Log In!</button>
+                                        <a href="#" onclick="signOut();">Sign out</a>
+                                    </div>
+                                </div>
+        
+                                <div class="field">
+                                    <div class="control">
+                                        <p id="message"></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        
+
+        <!-- Include links to JavaScript files below -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="render.js"></script>
+    </body>
 </html>
