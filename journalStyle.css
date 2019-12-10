@@ -1,0 +1,9 @@
+
+a:hover {
+    /* background-color: gray; */
+    outline:none;
+}
+
+.createNewButton {
+    color: white;
+}
