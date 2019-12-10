@@ -1,5 +1,16 @@
 
 /*
+// global variables
+*/
+
+let name = " ";
+let career = " ";
+let relstat = " ";
+let conflict = " ";
+let tradition = " ";
+
+
+/*
 // create root
 */
 
@@ -78,6 +89,10 @@ export async function createHome(){
         <button class = "button is-large is-success createButton">
             Create Your Story!
         </button>
+        <br>
+        <br>
+        <p class = "createText"> </p>
+        <br>
     </div>
     `);
 }
@@ -104,52 +119,52 @@ export const chooseName = function() {
 export const chooseCareer = function() {
     let num = Math.floor(Math.random() * 4);
     if(num == 1) {
-        return "Small business owner";
+        return "small business owner";
     } else if (num == 2) {
-        return "Marketing manager";
+        return "marketing manager";
     } else if (num == 3) {
-        return "Hotel manager";
+        return "hotel manager";
     }else {
-        return "Teacher";
+        return "teacher";
     }
 }
 
 export const chooseRelStatus = function() {
     let num = Math.floor(Math.random() * 4);
     if(num == 1) {
-        return "In a long term relationship";
+        return "in a long term relationship";
     } else if (num == 2) {
-        return "A serial, non-serious dater";
+        return "a serial date, but nothing serious";
     } else if (num == 3) {
-        return "Prioritizes work over relationships";
+        return "prioritizing work over relationships";
     }else {
-        return "Has never been in a relationship";
+        return "always single, never been in a relationship";
     }
 }
 
 export const chooseConflict = function() {
     let num = Math.floor(Math.random() * 4);
     if(num == 1) {
-        return "Job requires relocation from small town to big city";
+        return "her job requires relocation from a small town to big city";
     } else if (num == 2) {
-        return "Recently fired from job";
+        return "she just got fired from her job";
     } else if (num == 3) {
-        return "Just got dumped";
+        return "she just got dumped";
     }else {
-        return "Family health emergency";
+        return "there's been a family health emergency";
     }
 }
 
 export const chooseTradition = function() {
     let num = Math.floor(Math.random() * 4);
     if(num == 1) {
-        return "Decoration Christmas tree with family";
+        return "decorating the Christmas tree with family";
     } else if (num == 2) {
-        return "Carolling with friends";
+        return "carolling with friends";
     } else if (num == 3) {
-        return "Preparing Christmas Day dinner";
+        return "preparing Christmas Day dinner";
     }else {
-        return "Getting kised under misteltoe";
+        return "getting kised under misteltoe";
     }
 }
 
@@ -158,26 +173,39 @@ export const chooseTradition = function() {
 */
 
 export const handleName = function(event) {
-    $('.nameText').replaceWith(chooseName());
+    name = chooseName();
+    $('.nameText').replaceWith(name);
 }
 
 export const handleCareer = function(event) {
-    $('.careerText').replaceWith(chooseCareer());
+    career = chooseCareer();
+    $('.careerText').replaceWith(career);
 }
 
 export const handleRelStatus = function(event) {
-    $('.relText').replaceWith(chooseRelStatus());
+    relstat = chooseRelStatus();
+    $('.relText').replaceWith(relstat);
 }
 
 export const handleConflict = function(event) {
-    $('.conflictText').replaceWith(chooseConflict());
+    conflict = chooseConflict();
+    $('.conflictText').replaceWith(conflict);
 }
 
 export const handleTradition = function(event) {
-    $('.tradText').replaceWith(chooseTradition());
+    tradition = chooseTradition();
+    $('.tradText').replaceWith(tradition);
 }
 
+export const handleCreate = function(event) {
+    $('.createText').replaceWith(
+        `Meet ${name}, she is a ${career}!  This holiday season, she's been thinking about how she has been ${relstat}. Recently, she just received news that ${conflict}.  Will she be able to have a happy holiday, ${tradition}? Watch tonight to find out!`
+    );
+}
 
+export const postHTML = function(event){
+    $('#root').append(`<button class = "button is-large postButton"> Post!</button>`);    
+}
 
 
 /*
@@ -187,12 +215,13 @@ export const handleTradition = function(event) {
 export const renderHome = function() {
 
     createHome();
-    //name
     $(document).on("click",".nameButton", handleName);
     $(document).on("click",".careerButton", handleCareer);
     $(document).on("click",".relStatusButton", handleRelStatus);
     $(document).on("click",".conflictButton",handleConflict);
     $(document).on("click",".traditionButton",handleTradition);
+    $(document).on("click",".createButton",handleCreate);
+    $(document).on("click",".createButton",postHTML)
 }
 
 
