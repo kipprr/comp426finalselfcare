@@ -62,6 +62,12 @@
     },
     "berbre": {
       "passwordHash": "$2a$10$Fa71q1labuNHUF/H52u2QuSM72TruXKgi/FMKInxfn/9HOaBaRaP2"
+    },
+    "tylar": {
+      "passwordHash": "$2a$10$wBFfd1FZZoD1ANSJb71QAO0s3OyMpl8lu0ImprYOSWj5ZPNDK04GK"
+    },
+    "tylar watson": {
+      "passwordHash": "$2a$10$KICI6/YTZCHS3xu6n6YzD.A7OstKmNiiy5fM.TqOqz.EYszpzTFES"
     }
   }
 }
