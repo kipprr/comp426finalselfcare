@@ -81,6 +81,40 @@
             </div>
         </div>
     </div>
+    <div id="login">
+            <div class="login-card">
+                <div class="card-title">
+                    <h1>Project Sign in</h1>
+                </div>
+
+                <div class="content">
+                    <form id="accountinfo-form">
+                        <input class="input" id="name" type="name"  name="name" title="name" placeholder="username" required autofocus>
+                        <input class="input" id="pass" type="password" name="pass" title="pass" placeholder="Password" required>
+
+                        <div class="field">
+                            <div class="control">
+                                <div class="g-signin2" data-onsuccess="onSignUp"></div>
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                                <a href="#" onclick="signOut();">Sign out</a>
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <p id="message3"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://apis.google.com/js/platform.js" async defer></script>
+            <script src="render.js"></script>
 </body>
 
  </html>
