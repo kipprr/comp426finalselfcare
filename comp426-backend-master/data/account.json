@@ -62,6 +62,15 @@
     },
     "berbre": {
       "passwordHash": "$2a$10$Fa71q1labuNHUF/H52u2QuSM72TruXKgi/FMKInxfn/9HOaBaRaP2"
+    },
+    "kippreed": {
+      "passwordHash": "$2a$10$WCT4MwtbHAYP4W95JLiyleniQHnvTrQePK5Xf9kWEWMo4voTlF8gK"
+    },
+    "kippr": {
+      "passwordHash": "$2a$10$8rfeBuXtjT0i0tMUbzLih.HjfkV/HjDe7Ari4plMXLMAgdos4VTiK"
+    },
+    "executive director": {
+      "passwordHash": "$2a$10$tvwabVuP6zjtNfp7CkdcXutl.D0M8CKa1tJz5EZx9VAovGdzLk1w2"
     }
   }
 }
