@@ -74,6 +74,12 @@
     },
     "tsioo": {
       "passwordHash": "$2a$10$xcgH9TnTIzEYaEmuxfocF.AdOvTU.TOzvLHM5xNCK5Pve9UqrqGcy"
+    },
+    "dfas": {
+      "passwordHash": "$2a$10$FiBwlFHZ/bV7frOgy6l.EuQHvfuY14XnIV46eTId3kJNSPcZHOZ9i"
+    },
+    "tylar": {
+      "passwordHash": "$2a$10$TWpu1QNQNPJJ35Dqe/Sze.2KvGEqSjJzn.ojYhSLwD2/gap0SAwDO"
     }
   }
 }

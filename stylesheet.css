@@ -1,17 +1,21 @@
+#logo{
+    height: 800px;
+    width: 1000px;
+}
 #login {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: #F7F7F7;
+    
   }
   #login .login-card {
-    background: #fff;
+    
     width: 24rem;
     box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.11);
   }
   #login .login-card .card-title {
-    background-color: #4B9CD3;
+    background-color: rgb(182, 14, 14);
     padding: 2rem;
   }
   #login .login-card .card-title h1 {
@@ -36,7 +40,7 @@
     border-color: #7a7a7a;
   }
   #login .login-card #email:active, #login .login-card #email:focus, #login .login-card #password:active, #login .login-card #password:focus {
-    border-color: #4B9CD3;
+    border-color: rgb(182, 14, 14);
   }
   #login .login-card .checkbox {
     color: #b5b5b5;
