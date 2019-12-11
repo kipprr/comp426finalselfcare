@@ -66,7 +66,7 @@ const getTodos = async () => {
   const createTodo = async ({name = '', user = '', body = '', likes = 0, date = new Date().getTime()} = {}) => {
     return (await axios.post('http://localhost:3000/public/movie', {
       data: {
-        name, user, body, likes, isLiked, date
+        name, user, body, likes, date
       },
      type: 'merge'
     })).data.result.posted;
