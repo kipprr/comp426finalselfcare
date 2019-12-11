@@ -1,5 +1,19 @@
 {
   "users": {
+    "tsion coulter": {
+      "passwordHash": "$2a$10$mcMP4a/PArpL/rlEDkUJKOlSuB67MYleo2QsZ8X.5gDB6aLF0lDpq"
+    },
+    "o": {
+      "a": {
+        "s": {
+          "i": {
+            "s unc-ch": {
+              "passwordHash": "$2a$10$/sygXwJeYbJWs9YahhZpQ.xhF22stmjljt0fEHA441xkWleI/LYDu"
+            }
+          }
+        }
+      }
+    },
     "username=tsionw&password=1234567": {
       "passwordHash": "$2a$10$Lo1fiSPR9nntl//WGzwBN.ClptUZifVz/KYBrEle1GFMQk60v5HDu"
     },
@@ -14,6 +28,22 @@
       "com&password=ethiopia17!": {
         "passwordHash": "$2a$10$6oG./faMDgj2X2xajWcvGOcgny5MhgRQORq6uaeKBFmULLWLlG1su"
       }
+    },
+    "username=charlierjr%40gmail": {
+      "com&password=test": {
+        "passwordHash": "$2a$10$kIgTb11VfAzgdO6YLeYIIOUyMFm7Ok7aNUQRhzve/dHVshuXMPPZm"
+      }
+    },
+    "charlie helms jr": {
+      "": {
+        "passwordHash": "$2a$10$JOn/Dh6V.GFsPtT90sfbfe2chgruiXMBWkVL1L0S3aJenuBiXA0uW"
+      }
+    },
+    "username=tsionc%40scsd&password=112": {
+      "passwordHash": "$2a$10$LPJe5lOViplyVebuPAheAe8NxxYbpLDZqR6g89fY4gekrnVhuuaoe"
+    },
+    "username=sdd&password=ds": {
+      "passwordHash": "$2a$10$og3wxB/TtqiwW5KP1Pqj1uGwef0T3.iZWE9V1.SFm2KylGfUeSJHS"
     },
     "bob": {
       "passwordHash": "$2a$10$n8w7aR0s9yUguK0hUR9PrOHpMKLOLiiBx24n.9jQre/kuN4.KcMfu"
@@ -44,6 +74,12 @@
     },
     "tsioo": {
       "passwordHash": "$2a$10$xcgH9TnTIzEYaEmuxfocF.AdOvTU.TOzvLHM5xNCK5Pve9UqrqGcy"
+    },
+    "dfas": {
+      "passwordHash": "$2a$10$FiBwlFHZ/bV7frOgy6l.EuQHvfuY14XnIV46eTId3kJNSPcZHOZ9i"
+    },
+    "tylar": {
+      "passwordHash": "$2a$10$TWpu1QNQNPJJ35Dqe/Sze.2KvGEqSjJzn.ojYhSLwD2/gap0SAwDO"
     }
   }
 }

@@ -25,7 +25,7 @@
         $message.html('<span class="has-text-success">Success! You are now logged in.</span>');
         sessionStorage.setItem('user', res.name);
         sessionStorage.setItem('jwt',  res.jwt);
-        location.href=("journal.html");
+        location.href=("homepage.html");
       }).catch(() => {
         $message.html('<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>');
       });
@@ -55,6 +55,9 @@ $.ajax({
     "pass":"1234"
   } ,
   withCredentials: true,
+}).then(() => {
+  
+  location.href=("homepage.html");
 });
     // The ID token you need to pass to your backend:
     var id_token1 = googleUser.getAuthResponse().id_token;
