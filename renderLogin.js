@@ -40,12 +40,12 @@
     // Useful data for your client-side scripts:
     var profile1 = googleUser.getBasicProfile();
     //document.getElementById("demo").innerHTML ='Full Name: ' + profile.getName();
-    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail());
+    console.log("ID: " + profile1.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile1.getName());
+    console.log('Given Name: ' + profile1.getGivenName());
+    console.log('Family Name: ' + profile1.getFamilyName());
+    console.log("Image URL: " + profile1.getImageUrl());
+    console.log("Email: " + profile1.getEmail());
 $.ajax({
   url: 'http://localhost:3000/account/login',
   type: 'POST',
@@ -57,7 +57,6 @@ $.ajax({
   withCredentials: true,
 }).then(() => {
   
-  location.href=("homepage.html");
 });
     // The ID token you need to pass to your backend:
     var id_token1 = googleUser.getAuthResponse().id_token;
@@ -67,9 +66,10 @@ xhr.open('POST', 'https://http://localhost:3000/account/login');
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 xhr.onload = function() {
 console.log('Signed in as: ' + xhr.responseText);
-
 };
-location.href=("journal.html");
+alert(`Welcome, ${profile1.getName()}`);
+location.href=("homepage.html");
+sessionStorage.setItem('user', `${profile1.getName()}`);
 
 // xhr.send('idtoken=' + id_token);
 }

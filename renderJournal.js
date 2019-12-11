@@ -12,7 +12,7 @@ $(function()
   
   let token = sessionStorage.getItem('user');
   
-    $message.html(`<h1 class = "title is-4"> Welcome to Your Journa ${token}! </h1>`);
+    $message.html(`<h1 class = "title is-4"> Welcome to Your Journal ${token}! </h1>`);
  
   
 });
