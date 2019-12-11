@@ -73,13 +73,14 @@ console.log('Signed in as: ' + xhr.responseText);
 //location.href=("homepage.html");
 };
 //location.href=("homepage.html");
-};
 alert(`Welcome, ${profile1.getName()}`);
-location.href=("homepage.html");
+location.href=("journal.html");
 sessionStorage.setItem('user', `${profile1.getName()}`);
+};
+
 
 // xhr.send('idtoken=' + id_token);
-}
+
 
 function signOut() 
 {
@@ -88,6 +89,6 @@ function signOut()
     
     console.log('User signed out.');
   });
-  location.href=("journal.html");
+  location.href=("Login.html");
   
 }

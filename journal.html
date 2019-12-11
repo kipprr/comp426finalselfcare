@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="497688146905-7vr5q3e3dmtb3r8tqfc6t9gbjm2eg719.apps.googleusercontent.com">
     <link rel="stylesheet" href="node_modules/bulma/css/bulma.css" />
     <link rel = "stylesheet" href = "journalStyle.css">
     <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet">
@@ -12,42 +13,6 @@
 
 <body>
        
-        <script>
-          /**
-           * Sample JavaScript code for youtube.playlists.insert
-           * See instructions for running APIs Explorer code samples locally:
-           * https://developers.google.com/explorer-help/guides/code_samples#javascript
-           */
-        
-          function authenticate() {
-            return gapi.auth2.getAuthInstance()
-                .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
-                .then(function() { console.log("Sign-in successful"); },
-                      function(err) { console.error("Error signing in", err); });
-          }
-          function loadClient() {
-            gapi.client.setApiKey("AIzaSyAiCactpOX_SeEPvkdZNKox5nTR3zevbAM");
-            return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
-                .then(function() { console.log("GAPI client loaded for API"); },
-                      function(err) { console.error("Error loading GAPI client for API", err); });
-          }
-          // Make sure the client is loaded and sign-in is complete before calling this method.
-          function execute() {
-            return gapi.client.youtube.playlists.insert({
-              "resource": {}
-            })
-                .then(function(response) {
-                        // Handle the results here (response.result has the parsed body).
-                        console.log("Response", response);
-                      },
-                      function(err) { console.error("Execute error", err); });
-          }
-          gapi.load("client:auth2", function() {
-            gapi.auth2.init({client_id: "497688146905-7vr5q3e3dmtb3r8tqfc6t9gbjm2eg719.apps.googleusercontent.com"});
-          });
-        </script>
-        <button onclick="authenticate().then(loadClient)">authorize and load</button>
-        <button onclick="execute()">execute</button>
         
     <div id = "root">
         <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -96,7 +61,9 @@
                                
                                 <p class = "subtitle">
                                     Click here to get started.
+                                   
                                 </p>
+                                <a href="#" onclick="signOut();">Sign out</a>
                         <!-- </div> -->
                         </a>
                     </div>
@@ -118,44 +85,16 @@
             </section>
             <footer class="modal-card-foot">
                 <button class="button is-success saveButton">Save</button>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 <button class="button cancelButton">Cancel</button>
+                
             </footer>
             </div>
         </div>
     </div>
-    <div id="login">
-            <div class="login-card">
-                <div class="card-title">
-                    <h1>Project Sign in</h1>
-                </div>
-
-                <div class="content">
-                    <form id="accountinfo-form">
-                        <input class="input" id="name" type="name"  name="name" title="name" placeholder="username" required autofocus>
-                        <input class="input" id="pass" type="password" name="pass" title="pass" placeholder="Password" required>
-
-                        <div class="field">
-                            <div class="control">
-                                <div class="g-signin2" data-onsuccess="onSignUp"></div>
-                                <button type="submit" class="btn btn-primary">Sign in</button>
-                                <a href="#" onclick="signOut();">Sign out</a>
-                            </div>
-                        </div>
-                        <div>
-
-                        </div>
-
-                        <div class="field">
-                            <div class="control">
-                                <p ></p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div> 
-
+    
             <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-            <script src="https://apis.google.com/js/api.js"></script>
+            <script src="https://apis.google.com/js/platform.js" async defer></script>
             <script src="renderJournal.js"></script>
 </body>
 

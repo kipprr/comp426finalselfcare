@@ -18,6 +18,7 @@ export async function createHome(){
     $('#root').append( 
     `
     <div>
+   
     <table class = "table has-text-centered">
     <tbody class = >
         <tr class = "name" >
@@ -172,38 +173,38 @@ export const chooseTradition = function() {
 // button handlers
 */
 
-export const handleName = function(event) {
+export const handleName = function() {
     name = chooseName();
     $('.nameText').replaceWith(name);
 }
 
-export const handleCareer = function(event) {
+export const handleCareer = function() {
     career = chooseCareer();
     $('.careerText').replaceWith(career);
 }
 
-export const handleRelStatus = function(event) {
+export const handleRelStatus = function() {
     relstat = chooseRelStatus();
     $('.relText').replaceWith(relstat);
 }
 
-export const handleConflict = function(event) {
+export const handleConflict = function() {
     conflict = chooseConflict();
     $('.conflictText').replaceWith(conflict);
 }
 
-export const handleTradition = function(event) {
+export const handleTradition = function() {
     tradition = chooseTradition();
     $('.tradText').replaceWith(tradition);
 }
 
-export const handleCreate = function(event) {
+export const handleCreate = function() {
     $('.createText').replaceWith(
         `Meet ${name}, she is a ${career}!  This holiday season, she's been thinking about how she has been ${relstat}. Recently, she just received news that ${conflict}.  Will she be able to have a happy holiday, ${tradition}? Watch tonight to find out!`
     );
 }
 
-export const postHTML = function(event){
+export const postHTML = function(){
     $('#root').append(`<button class = "button is-large postButton"> Post!</button>`);    
 }
 
@@ -231,7 +232,6 @@ $(function() {
 
 $(function() 
 {
-  const $form = $('#accountinfo-form');
   const $message = $('#message3');
   //event.preventDefault();
 
@@ -246,41 +246,9 @@ $(function()
     Let's Build a Cheesy <span style = "color: green">Christmas</span> Romance Movie ${token}!
 </h1>
 `);
- 
-  
-});
+})
 
-function onSignIn(googleUser) 
-  {
-    
-    // Useful data for your client-side scripts:
-    var profile1 = googleUser.getBasicProfile();
-    //document.getElementById("demo").innerHTML ='Full Name: ' + profile.getName();
-    console.log("ID: " + profile1.getId()); // Don't send this directly to your server!
-    console.log('Full Name: ' + profile1.getName());
-    console.log('Given Name: ' + profile1.getGivenName());
-    console.log('Family Name: ' + profile1.getFamilyName());
-    console.log("Image URL: " + profile1.getImageUrl());
-    console.log("Email: " + profile1.getEmail());
-$.ajax({
-  url: 'http://localhost:3000/account/login',
-  type: 'POST',
-  data:
-  {
-    "name":profile1.getName(),
-    "pass":"1234"
-  } ,
-  withCredentials: true,
-  success: function(data){
-    res=data;
-  }
-}).then(() => {
-  
-  sessionStorage.setItem('user', res.name);
-  sessionStorage.setItem('jwt',  res.jwt);
-});
-    // The ID token you need to pass to your backend:
-    var id_token1 = googleUser.getAuthResponse().id_token;
+var id_token1 = googleUser.getAuthResponse().id_token;
     console.log("ID Token: " + id_token1);
     var xhr = new XMLHttpRequest();
 xhr.open('POST', 'https://http://localhost:3000/account/login');
@@ -290,17 +258,17 @@ console.log('Signed in as: ' + xhr.responseText);
 //location.href=("homepage.html");
 };
 //location.href=("homepage.html");
-
-// xhr.send('idtoken=' + id_token);
-}
-
-function signOut() 
+alert(`Welcome, ${profile1.getName()}`);
+location.href=("homepage.html");
+sessionStorage.setItem('user', `${profile1.getName()}`);
+$(function signOut() 
 {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
     
     console.log('User signed out.');
   });
-  location.href=("journal.html")
+  location.href=("Login.html");
   
-}
+});
+

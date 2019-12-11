@@ -80,6 +80,9 @@
     },
     "tylar": {
       "passwordHash": "$2a$10$TWpu1QNQNPJJ35Dqe/Sze.2KvGEqSjJzn.ojYhSLwD2/gap0SAwDO"
+    },
+    "zdfsdf": {
+      "passwordHash": "$2a$10$ZQyZgPn/WlkrszBqwQrzMO5oMjPtbWc6mluTsH5ww7UoxXCXdkJ6K"
     }
   }
 }
