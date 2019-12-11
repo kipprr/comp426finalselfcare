@@ -59,18 +59,18 @@
   #login .login-card button {
     cursor: pointer;
     font-size: 1.2rem;
-    color: #4B9CD3;
+    color: rgb(255, 253, 253);
     border-radius: 4rem;
     display: block;
     width: 100%;
     background: transparent;
-    border: 2px solid #4B9CD3;
+    border: 2px solid rgb(23, 71, 27);
     padding: 0.9rem 0 1.1rem;
     transition: color .5s, border-color .5s;
   }
   #login .login-card button:hover, #login .login-card button:focus {
-    color: #13294B;
-    border-color: #13294B;
+    color: rgb(37, 92, 63);
+    border-color: rgb(29, 110, 76);
   }
   #login .login-card button:active {
     transform: translateY(1px);

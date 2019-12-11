@@ -1,103 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-signin-client_id" content="497688146905-7vr5q3e3dmtb3r8tqfc6t9gbjm2eg719.apps.googleusercontent.com">
-    <link rel="stylesheet" href="node_modules/bulma/css/bulma.css" />
-    <link rel = "stylesheet" href = "journalStyle.css">
-    <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet">
-    <title>Your Journal</title>
-</head>
+<html>
+<meta charset="UTF-8">
+<meta name="google-signin-client_id" content="497688146905-7vr5q3e3dmtb3r8tqfc6t9gbjm2eg719.apps.googleusercontent.com">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+<link rel="stylesheet" href="node_modules/bulma/css/bulma.css" />
+<link rel="stylesheet" href="custom_style.css" />
+<link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet"> 
+<style>
+    body {
+      background-image: url('images/trees.png');
+      
+    }
+    </style>
 <body>
        
+<div>
+    
+    <img id="logosmall" src="images/logo.png" />
+    
+    <div class="container has-background-white" style="padding-top: 10px" >
         
-    <div id = "root">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div id="journalNavbar" class="navbar-menu">
-            <div class="navbar-start">
-            <a class="navbar-item">
-                <span class = "title is-1">
-                    Your Journal
-                </span>
-            </a>
-            <a class="navbar-item createNew">
-                <div class = "buttons">
-                    <a class = "button is-primary createNewButton">
-                     <span class = "title is-4">
-                        Create New Entry                
-                    </span>
-                    </a>
-                </div>
-               
-            </a>
-            </div>
-            <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                <a class="button is-link"onclick="window.location.href = 'homepage.html';">
-                    <strong>Return Home</strong>
-                </a>
-                </div>
-            </div>
-            </div>
-        </div>
-        </nav>
-        <br>
-        <div class = "columns is-mobile">
-            <div class = "column is-10 is-offset-1">
-                <div class = "tile is-ancestor journalTiles">
-                    <div class = "tile is-4 is-parent">
-                        <a class = "tile is-child box" id="JournalButton">
-                            <!--<div class = "tile is-child box"> -->
-                               
-                                
-                                     <h1 class = "title is-4" id="message3"> 
-                                         
-                                     </h1>
-                                   
-                               
-                                <p class = "subtitle">
-                                    Click here to get started.
-                                   
-                                </p>
-                                <a href="#" onclick="signOut();">Sign out</a>
-                        <!-- </div> -->
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="modal" id="myModal">
-        <span class="close">&times;</span>
-            <div class="modal-background"></div>
-            <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Modal title</p>
-                <button class="delete" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body">
-                <!-- Content ... -->
-            </section>
-            <footer class="modal-card-foot">
-                <button class="button is-success saveButton">Save</button>
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                <button class="button cancelButton">Cancel</button>
-                
-            </footer>
-            </div>
-        </div>
+      <div style="padding-bottom: 0px">
+        <p class="title is-1 is-center">SLOTH</p>
+      <p class="subtitle is-3 is-center" style="font-family: fantasy">Send Love Over The Holiday!</p>
+      <p class="subtitle is-3 is-center" style="font-family: cursive">Thank you for using our App!</p>
     </div>
     
-            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-            <script src="https://apis.google.com/js/platform.js" async defer></script>
-            <script src="renderJournal.js"></script>
+     <div class="container" style="padding: 10px">
+      <!-- <button class="button is-success is-light" style="padding: 0px 20px" onclick="window.location.href = 'SignUp.html';">Sign Up </button> -->
+      <button class="button is-danger is-light" style="padding: 0px 20px" href="#" onclick="signOut();">Sign out</button>
+      <!-- <button class="button is-success" style="padding: 0px 20px" onclick="window.location.href = 'Login.html';">Login </button>  -->
+    </div>
+    <div class="modal" id="createTweetModal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Post Movie</p>
+                <p>Will post anonymously until logged in</p>
+              </header>
+              <section class="modal-card-body">
+                <textarea class="textarea" id="postTweetBody"></textarea>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+              </section>
+              <footer class="modal-card-foot">
+                <button class="button is-success" id="tweetPost">Post Movie</button>
+                <button class="button" id="tweetCancel">Cancel</button>
+              </footer>
+            </div>
+        </div>
+    
+
+  <!-- The core Firebase JS SDK is always required and must be listed first 
+  <script src="/__/firebase/7.5.0/firebase-app.js"></script>-->
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries 
+    <script src="/__/firebase/7.5.0/firebase-analytics.js"></script>-->
+
+
+<!-- Initialize Firebase 
+<script src="/__/firebase/init.js"></script>-->
+
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="renderJournal.js"></script>
+  
+  <!--<script src="render.js" type="module"></script>-->
+  </div>
+  
 </body>
-
- </html>
-
-
+</html>
