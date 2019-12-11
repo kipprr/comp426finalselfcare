@@ -15,7 +15,6 @@ $(function()
     $message.html(`<h1 class = "title is-4"> Welcome to Your Journa ${token}! </h1>`);
  
   
-});
-var Spotify = require('spotify-web-api-js');
-var s = new Spotify();
+})
+
 
