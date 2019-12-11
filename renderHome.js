@@ -134,7 +134,7 @@ export const chooseRelStatus = function() {
     if(num == 1) {
         return "in a long term relationship";
     } else if (num == 2) {
-        return "a serial date, but nothing serious";
+        return "a serial dater, but nothing serious";
     } else if (num == 3) {
         return "prioritizing work over relationships";
     }else {
@@ -164,7 +164,7 @@ export const chooseTradition = function() {
     } else if (num == 3) {
         return "preparing Christmas Day dinner";
     }else {
-        return "getting kised under misteltoe";
+        return "getting kissed under misteltoe";
     }
 }
 
