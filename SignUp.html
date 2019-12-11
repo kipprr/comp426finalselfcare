@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-signin-client_id" content="497688146905-7vr5q3e3dmtb3r8tqfc6t9gbjm2eg719.apps.googleusercontent.com">
-        <meta name="google-signin-client_secret" content="0PDT2pmrcffwly8vx7AnkhcT">
+       
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Login to COMP 426</title>
 
@@ -22,15 +22,20 @@
             </style>
     <body>
     
-            
+            <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" 
+src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=469493847084419&autoLogAppEvents=1">
+</script>
             <div id="login">
             
                     <div class="login-card">
                         <div class="card-title">
                             <h1>Membership Sign up</h1>
+                           
                         </div>
         
                         <div class="content">
+                                
                             <form id="signup-form">
                                 <input class="input" id="name" type="name"  name="name" title="name" placeholder="username" required autofocus>
                                 <input class="input" id="pass" type="password" name="pass" title="pass" placeholder="Password" required>
@@ -38,6 +43,14 @@
                                 <div class="field">
                                     <div class="control">
                                         <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                                        <fb:login-button class="button is-large"
+                                scope="public_profile,email"
+                                
+                               
+                               
+                                
+                                onlogin="checkLoginState();">
+                              </fb:login-button>
                                         <button type="submit" class="btn btn-primary">Sign up</button>
                                         <a href="#" onclick="signOut();">Sign out</a>
                                     </div>
