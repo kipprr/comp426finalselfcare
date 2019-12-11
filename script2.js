@@ -11,22 +11,22 @@ const getMovie = async function() {
     return result;
 };
 
-const renderMovie = function(tweet) {
+const renderMovie = function(movie, i) {
     return `<div class="container tweet" style="padding-bottom: 20px">
     <div class="card">
             <div class="card-content" style="padding-bottom: 10px; padding-top: 20px">
                 <div class="media-content">
-                  <p class="title is-4 tweetName">Name of User</p>
+                  <p class="title is-4 tweetName">${movie.data.result[i].name}</p>
                 </div>
             </div>
             <div class="container tweetText" style="padding-left: 25px; padding-right: 20px; padding-bottom: 0px; padding-top: 0px">
-                Body of tweet
+            ${movie.data.result[i].body}
             </div>
             <div class="container" style="padding-left: 25px; padding-bottom: 20px; padding-top: 10px; padding-right: 20px">
                 <div class="level">
                     <div class="level-left">
                         <div class="level-item">
-                        <p class="content"><span class="tweetLikeNumber" style="color: #c81b1b">Number of likes</span></p>  
+                        <p class="content"><span class="tweetLikeNumber" style="color: #c81b1b">${movie.data.result[i].likes}</span></p>  
                         </div>
                         <div class="level-item">
                             <figure class="image is-24x24" >
@@ -45,6 +45,32 @@ const renderMovie = function(tweet) {
           </div>
 </div>`;
 }
+
+const getTodos = async () => {
+    try {
+      let result = await axios.get('http://localhost:3000/public/movie');
+      return result.data.result;
+    } catch (e) {
+      return [];
+    }
+  };
+  
+  // kind of a hack
+  // instead of deleting, update list with what we have locally
+  const updateTodos = async (todos) => {
+    return (await axios.post('http://localhost:3000/public/movie', {
+      data: todos
+    })).data.result.posted;
+  };
+  
+  const createTodo = async ({name = '', user = '', body = '', likes = 0, date = new Date().getTime()} = {}) => {
+    return (await axios.post('http://localhost:3000/public/movie', {
+      data: {
+        name, user, body, likes, isLiked, date
+      },
+     type: 'merge'
+    })).data.result.posted;
+  };
 
 
 const hoverLiked = function() {
@@ -75,15 +101,26 @@ const handleTweet = async function() {
     var bodyValue = $('#postTweetBody').val();
     $('#createTweetModal').removeClass("is-active");
    
-    $.ajax({
-        url: 'http://localhost:3000/public/movie',
-        type: 'POST',
-        data: {
-            "data": bodyValue
-        },
-        withCredentials: true,
-    });
-    loadTweetsIntoDOM();
+        const name = "Anonymous";
+        const user = "";
+        const body = $('#postTweetBody').val();
+        const likes = 0;
+       // const description = e.target.description.value;
+       
+        let todos = (await createTodo({name, user, body, likes}));
+        //if (props.onChange) props.onChange(todos);
+      //}}
+
+
+    // $.ajax({
+    //     url: 'http://localhost:3000/public/movie',
+    //     type: 'POST',
+    //     data: {
+    //         "data": bodyValue
+    //     },
+    //     withCredentials: true,
+    // });
+    //loadTweetsIntoDOM();
 };
 
 
@@ -93,6 +130,10 @@ const handleLikeTweet = async function() {
     
     $(event.target).removeClass("tweetLikeButton");
     $(event.target).addClass("tweetUnLikeButton");
+
+    
+
+
     // const result = await axios({
     //     method: 'put',
     //     url: `https://comp426fa19.cs.unc.edu/a09/tweets/${numId}/like`,
@@ -155,7 +196,7 @@ const handleEditCancel = async function() {
 const handleEditSubmit = async function() {
     var bodyValue = $('#editTweetBody').val();
     $('#editTweetModal').removeClass("is-active");
-      const result = await axios({
+       const result = await axios({
         method: 'put',
         url: `https://comp426fa19.cs.unc.edu/a09/tweets/${currentTweetForEdit}`,
         withCredentials: true,
@@ -171,16 +212,26 @@ const loadTweetsIntoDOM = async function() {
     $('#test').empty();
 
     const $tweetStart = $('#tweets');
-    
 
-    const result = $.ajax({
+    const result = await axios({
+        method: 'get',
         url: 'http://localhost:3000/public/movie',
-        type: 'GET',
-        withCredentials: true,
+       // withCredentials: true,
     });
 
     var tweetsString = '';
-    tweetsString = renderMovie(result.data);
+    // alert(result);
+    // alert(jQuery.parseJSON(JSON.stringify(result)).toString());
+    // alert(JSON.parse(result));
+    // alert(result["result"].user);
+    // alert(result.data);
+    // alert(result.data.result);
+    // alert(result.data.result[0]);
+    for (var i = result.data.result.length-1; i > result.data.result.length-8; i--) {
+        tweetsString += renderMovie(result, i);
+    }
+    // alert(JSON.stringify(result));
+    // alert(result.data.result.user);
 
     $tweetStart.html(tweetsString);
 
@@ -197,12 +248,7 @@ const loadTweetsIntoDOM = async function() {
     $(document).on('click', '.editTweetPost', handleEditSubmit);
     $(document).on('click', '.editTweetCancel', handleEditCancel);
     $(document).on('click', '.deleteButton', handleDelete);
-    $(document).on('click', '.tweetRetweetButton', handleRetweet);
-    $(document).on('click', '.tweetUnRetweetButton', handleUnRetweet);
-    $(document).on('click', '.tweetReplyButton', handleReply);
-    $(document).on('click', '.replyTweetCancel', handleReplyCancel);
-    $(document).on('click', '.replyTweetPost', handleReplySubmit);
-
+    
 
 };
 

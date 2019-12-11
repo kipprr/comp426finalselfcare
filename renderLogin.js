@@ -60,8 +60,7 @@ $.ajax({
   }
 }).then(() => {
   
-  sessionStorage.setItem('user', res.name);
-  sessionStorage.setItem('jwt',  res.jwt);
+ 
 });
     // The ID token you need to pass to your backend:
     var id_token1 = googleUser.getAuthResponse().id_token;
@@ -74,6 +73,10 @@ console.log('Signed in as: ' + xhr.responseText);
 //location.href=("homepage.html");
 };
 //location.href=("homepage.html");
+};
+alert(`Welcome, ${profile1.getName()}`);
+location.href=("homepage.html");
+sessionStorage.setItem('user', `${profile1.getName()}`);
 
 // xhr.send('idtoken=' + id_token);
 }
