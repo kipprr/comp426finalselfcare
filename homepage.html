@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="497688146905-7vr5q3e3dmtb3r8tqfc6t9gbjm2eg719.apps.googleusercontent.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="node_modules/bulma/css/bulma.css" />
     <link rel = "stylesheet" href = "homepageStyle.css">
@@ -20,11 +21,13 @@
     </span>
     </p>
     <br>
+    <a href="#" onclick="signOut();">Sign out</a>
     <!--<button class="button is-link is-outlined is-center" onclick="window.location.href = 'SignUp.html';">Sign Up </button>-->
     <div id = "root"></div>
     <br>
     <br>
     <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="node_modules/axios/dist/axios.min.js"></script>
     <script src="renderHome.js" type="module"></script>

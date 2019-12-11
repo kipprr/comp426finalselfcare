@@ -55,8 +55,12 @@ $.ajax({
     "pass":"1234"
   } ,
   withCredentials: true,
+  success: function(data){
+    res=data;
+  }
 }).then(() => {
   
+ 
 });
     // The ID token you need to pass to your backend:
     var id_token1 = googleUser.getAuthResponse().id_token;
@@ -66,6 +70,9 @@ xhr.open('POST', 'https://http://localhost:3000/account/login');
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 xhr.onload = function() {
 console.log('Signed in as: ' + xhr.responseText);
+//location.href=("homepage.html");
+};
+//location.href=("homepage.html");
 };
 alert(`Welcome, ${profile1.getName()}`);
 location.href=("homepage.html");
@@ -74,12 +81,13 @@ sessionStorage.setItem('user', `${profile1.getName()}`);
 // xhr.send('idtoken=' + id_token);
 }
 
-
-
 function signOut() 
 {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
+    
     console.log('User signed out.');
   });
+  location.href=("journal.html");
+  
 }
