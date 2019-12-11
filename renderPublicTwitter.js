@@ -66,7 +66,7 @@ const getTodos = async () => {
   const createTodo = async ({name = '', user = '', body = '', likes = 0, date = new Date().getTime()} = {}) => {
     return (await axios.post('http://localhost:3000/public/movie', {
       data: {
-        name, user, body, likes, isLiked, date
+        name, user, body, likes, date
       },
      type: 'merge'
     })).data.result.posted;
@@ -98,7 +98,6 @@ const handleCancelTweet = function() {
 };
 
 const handleTweet = async function() {
-    var bodyValue = $('#postTweetBody').val();
     $('#createTweetModal').removeClass("is-active");
    
         const name = "Anonymous";
@@ -106,8 +105,8 @@ const handleTweet = async function() {
         const body = $('#postTweetBody').val();
         const likes = 0;
        // const description = e.target.description.value;
-       
-        let todos = (await createTodo({name, user, body, likes}));
+       //clearTimeout(setTimeout(createTodo({name, user, body, likes}), 500));
+       let todos = (await createTodo({name, user, body, likes}));
         //if (props.onChange) props.onChange(todos);
       //}}
 
@@ -131,6 +130,7 @@ const handleLikeTweet = async function() {
     $(event.target).removeClass("tweetLikeButton");
     $(event.target).addClass("tweetUnLikeButton");
 
+   // $('.tweetLikeNumber')
     
 
 
