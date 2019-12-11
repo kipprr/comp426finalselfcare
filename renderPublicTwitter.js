@@ -208,6 +208,14 @@ const handleEditSubmit = async function() {
   // $('#test').append(renderTweet(result.data));
 };
 
+// const signOut = function() {
+//   var auth2 = gapi.auth2.getAuthInstance();
+//   auth2.signOut().then(function () {
+//     console.log('User signed out.');
+//   });
+//   alert("signed out");
+// }
+
 const loadTweetsIntoDOM = async function() {
     $('#test').empty();
 
@@ -236,6 +244,7 @@ const loadTweetsIntoDOM = async function() {
     $tweetStart.html(tweetsString);
 
     $(document).on('click', '#create', handleCreateTweet);
+    // $(document).on('click', '#signOut', signOut);
     $(document).on('click', '#tweetPost', handleTweet);
     $(document).on('click', '#tweetCancel', handleCancelTweet);
     $(document).on('click', '.tweetLikeButton', handleLikeTweet);
@@ -258,3 +267,30 @@ const loadTweetsIntoDOM = async function() {
 $(function() {
     loadTweetsIntoDOM();
 });
+
+
+
+// var id_token1 = googleUser.getAuthResponse().id_token;
+//     console.log("ID Token: " + id_token1);
+//     var xhr = new XMLHttpRequest();
+// xhr.open('POST', 'https://http://localhost:3000/account/login');
+// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+// xhr.onload = function() {
+// console.log('Signed in as: ' + xhr.responseText);
+// };
+// alert(`Welcome, ${profile1.getName()}`);
+// location.href=("homepage.html");
+// sessionStorage.setItem('user', `${profile1.getName()}`);
+
+// // xhr.send('idtoken=' + id_token);
+
+
+
+
+// function signOut() 
+// {
+//   var auth2 = gapi.auth2.getAuthInstance();
+//   auth2.signOut().then(function () {
+//     console.log('User signed out.');
+//   });
+// }
