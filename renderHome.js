@@ -19,8 +19,8 @@ export async function createHome(){
     `
     <div>
    
-    <table class = "table has-text-centered">
-    <tbody class = >
+    <table class = "table has-text-centered" bgcolor="#d35448">
+    <tbody  >
         <tr class = "name" >
             <td style = "text-align: center">
                 <button class = "button is-large is-success nameButton">
@@ -36,7 +36,7 @@ export async function createHome(){
         <tr class = "career">
                 <td style = "text-align: center">
                     <button class = "button is-large careerButton">
-                        <span style = "color: green">Career</span> 
+                        <span style = "color: white">Career</span> 
                     </button>
                 </td>
                 <td style = "text-align: center">
@@ -60,7 +60,7 @@ export async function createHome(){
         <tr class = "conflict">
             <td style = "text-align: center">
                 <button class = "button is-large conflictButton">
-                    <span style = "color: green">Conflict</span>
+                    <span style = "color: white">Conflict</span>
                 </button>
             </td>
             <td style = "text-align: center">
@@ -205,7 +205,7 @@ export const handleCreate = function() {
 }
 
 export const postHTML = function(){
-    $('#root').append(`<button class = "button is-large postButton"> Post!</button>`);    
+    $('#root').append(`<br><button class = "button is-large postButton"> Post!</button>`);    
 }
 
 
