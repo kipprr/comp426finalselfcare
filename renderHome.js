@@ -3,11 +3,11 @@
 // global variables
 */
 
-let name = " ";
-let career = " ";
-let relstat = " ";
-let conflict = " ";
-let tradition = " ";
+var name = " ";
+var career = " ";
+var relstat = " ";
+var conflict = " ";
+var tradition = " ";
 
 
 /*
@@ -209,24 +209,26 @@ export const postHTML = function(){
 }
 
 
-const createTodo = async ({name = '', user = '', body = '', likes = 0, date = new Date().getTime()} = {}) => {
+const createTodo = async ({name1 = '', user = '', body = '', likes = 0, date = new Date().getTime()} = {}) => {
     return (await axios.post('http://localhost:3000/private/movie', {
       data: {
-        name, user, body, likes, date
+        name1, user, body, likes, date
       },
-     type: 'merge'
-    })).data.result.posted;
+      type: 'merge'},
+     {headers: { 'Authorization': "Bearer " + sessionStorage.getItem('jwt') }},
+     
+    )).data.result.posted;
   };
 
 const handlePost = async function() {
    
-        const name = "";
+        const name1 = "";
         const user = sessionStorage.getItem('user');
         const body = `Meet ${name}, she is a ${career}!  This holiday season, she's been thinking about how she has been ${relstat}. Recently, she just received news that ${conflict}.  Will she be able to have a happy holiday, ${tradition}? Watch tonight to find out!`;
         const likes = 0;
        // const description = e.target.description.value;
        
-        let todos = (await createTodo({name, user, body, likes}));
+        let todos = (await createTodo({name1, user, body, likes}));
 
         window.location.href='privatetwitter.html';
 }
