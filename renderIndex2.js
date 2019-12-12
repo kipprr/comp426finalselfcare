@@ -30,34 +30,45 @@ $(document).on('click','#continue', handleContinue);
 });
 
 
-const handleContinue = function() {
+const handleContinue = async function() {
 
   //$(document).scrollTo(document.getElementById('app'));
-  document.getElementById('scroll').scrollIntoView();
+  document.getElementById('everything').innerHTML = `<div class="container" style="padding-top: 10px; background-color: #fefcfe" >
+  <div style="padding-bottom: 0px">
+    <div id="app" style="color: black; line-height: 78px"></div>
+</div>
+
+</div>`;
+
   new Typewriter(document.getElementById("app"), {
     loop: true,
     delay: 75,
   })
     .pauseFor(2500)
-    .typeString("So what <italics>is</italics> SLOTH?")
+    .typeString('<span style="font-size: 50pt">So what is SLOTH?</span>')
     .pauseFor(1000)
     .deleteChars(17)
-    .typeString("We're glad you asked.")
+    .typeString('<span style="font-size: 50pt">Thanks for asking.</span>')
     .pauseFor(1000)
     .deleteChars(21)
-    .typeString('SLOTH is the perfect way to <span style="color: red">s</span>end <span style="color: red">l</span>ove <span style="color: red">o</span>ver <span style="color: red">t</span>he <span style="color: red">h</span>oliday.')
+    .typeString('<span style="font-size: 50pt">SLOTH is the perfect way to <span style="color: red; font-size: 50pt">s</span>end <span style="color: red; font-size: 50pt">l</span>ove <span style="color: red; font-size: 50pt">o</span>ver <span style="color: red; font-size: 50pt">t</span>he <span style="color: red; font-size: 50pt">h</span>oliday.</span>')
     .pauseFor(1000)
     .typeString(
-      '\n Make your own cheesy Christmas romance movie'
+      '<span style="font-size: 50pt"> Make your own cheesy Christmas romance movie</span>'
     )
     .pauseFor(1000)
     .typeString(
-      ' or simply read the plots that have already been written by other users.'
+      '<span style="font-size: 50pt"> or simply read the plots that have already been written by other users.</span>'
     ).pauseFor(500)
     .typeString(
-      '\n Sign up or just try our anonymous public movie plot feed below.'
+      '<span style="font-size: 50pt"> Sign up or just try our anonymous public movie plot feed below.</span>'
     )
     .start();
+    setTimeout(function(){
+      document.getElementById('publictwitterbutton').innerHTML = `<button class="button is-dark is-outlined" style="padding: 0px 20px" id="continue" onclick="window.location.href = 'publictwitter.html';">See Movie Post Feed</button>
+      `;
+      
+    }, 33000);
 };
 // var id_token1 = googleUser.getAuthResponse().id_token;
 //     console.log("ID Token: " + id_token1);
