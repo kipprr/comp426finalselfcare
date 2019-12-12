@@ -18,7 +18,7 @@ const renderMovie = function(movie, i) {
     <div class="card">
             <div class="card-content" style="padding-bottom: 10px; padding-top: 20px">
                 <div class="media-content">
-                  <p class="title is-4 tweetName">${movie.data.result[i].user}</p>
+                  <p class="title is-4 tweetName" style="text-transform: capitalize">${movie.data.result[i].user}</p>
                 </div>
             </div>
             <div class="container tweetText" id="${movie.data.result[i].date}body"style="padding-left: 25px; padding-right: 20px; padding-bottom: 0px; padding-top: 0px">
@@ -52,7 +52,7 @@ const renderMovie = function(movie, i) {
     <div class="card">
             <div class="card-content" style="padding-bottom: 10px; padding-top: 20px">
                 <div class="media-content">
-                  <p class="title is-4 tweetName">${movie.data.result[i].user}</p>
+                  <p class="title is-4 tweetName" style="text-transform: capitalize">${movie.data.result[i].user}</p>
                 </div>
             </div>
             <div class="container tweetText" style="padding-left: 25px; padding-right: 20px; padding-bottom: 0px; padding-top: 0px">
