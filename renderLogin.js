@@ -73,7 +73,7 @@ console.log('Signed in as: ' + xhr.responseText);
 //location.href=("homepage.html");
 };
 //location.href=("homepage.html");
-alert(`Welcome, ${profile1.getName()}`);
+// alert(`Welcome, ${profile1.getName()}`);
 location.href=("homepage.html");
 sessionStorage.setItem('user', `${profile1.getName()}`);
 };
