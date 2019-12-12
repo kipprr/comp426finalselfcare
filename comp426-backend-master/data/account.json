@@ -83,6 +83,9 @@
     },
     "zdfsdf": {
       "passwordHash": "$2a$10$ZQyZgPn/WlkrszBqwQrzMO5oMjPtbWc6mluTsH5ww7UoxXCXdkJ6K"
+    },
+    "kate": {
+      "passwordHash": "$2a$10$VjJ1K2oVfMWWOQJy7zq9SeSTjnpGfkLW4BhK2muu7LRnvI1zyPti."
     }
   }
 }
