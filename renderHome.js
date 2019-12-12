@@ -205,7 +205,7 @@ export const handleCreate = function() {
 }
 
 export const postHTML = function(){
-    $('#root').append(`<button class = "button is-large postButton"> Post!</button>`);    
+    $('#root').append(`<br><button class = "button is-large postButton"> Post!</button>`);    
 }
 
 
