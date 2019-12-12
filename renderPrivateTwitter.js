@@ -16,7 +16,7 @@ const renderMovie = function(movie, i) {
     <div class="card">
             <div class="card-content" style="padding-bottom: 10px; padding-top: 20px">
                 <div class="media-content">
-                  <p class="title is-4 tweetName">${movie.data.result[i].name}</p>
+                  <p class="title is-4 tweetName">${movie.data.result[i].user}</p>
                 </div>
             </div>
             <div class="container tweetText" style="padding-left: 25px; padding-right: 20px; padding-bottom: 0px; padding-top: 0px">
@@ -55,17 +55,19 @@ const getTodos = async () => {
   // kind of a hack
   // instead of deleting, update list with what we have locally
   const updateTodos = async (todos) => {
-    return (await axios.post('http://localhost:3000/public/movie', {
+    return (await axios.post('http://localhost:3000/private/movie', {
       data: todos
     })).data.result.posted;
   };
   
   const createTodo = async ({name = '', user = '', body = '', likes = 0, date = new Date().getTime()} = {}) => {
-    return (await axios.post('http://localhost:3000/public/movie', {
+    return (await axios.post('http://localhost:3000/private/movie', {
       data: {
         name, user, body, likes, date
       },
-     type: 'merge'
+     type: 'merge',
+     withCredentials: true, 
+     headers: { Authorization: `Bearer ${sessionStorage.getItem('jwt')}` }
     })).data.result.posted;
   };
 
@@ -98,8 +100,8 @@ const handleTweet = async function() {
     var bodyValue = $('#postTweetBody').val();
     $('#createTweetModal').removeClass("is-active");
    
-        const name = "Anonymous";
-        const user = "";
+        const name = "";
+        const user = sessionStorage.getItem('user');
         const body = $('#postTweetBody').val();
         const likes = 0;
        // const description = e.target.description.value;
@@ -214,31 +216,31 @@ const handleEditSubmit = async function() {
 // }
 
 const loadTweetsIntoDOM = async function() {
-    $('#test').empty();
+    // $('#test').empty();
 
-    const $tweetStart = $('#tweets');
+    // const $tweetStart = $('#tweets');
 
-    const result = await axios({
-        method: 'get',
-        url: 'http://localhost:3000/public/movie',
-       // withCredentials: true,
-    });
+    // const result = await axios({
+    //     method: 'get',
+    //     url: 'http://localhost:3000/private/movie',
+    //    // withCredentials: true,
+    // });
 
-    var tweetsString = '';
-    // alert(result);
-    // alert(jQuery.parseJSON(JSON.stringify(result)).toString());
-    // alert(JSON.parse(result));
-    // alert(result["result"].user);
-    // alert(result.data);
-    // alert(result.data.result);
-    // alert(result.data.result[0]);
-    for (var i = result.data.result.length-1; i > result.data.result.length-8; i--) {
-        tweetsString += renderMovie(result, i);
-    }
-    // alert(JSON.stringify(result));
-    // alert(result.data.result.user);
+    // var tweetsString = '';
+    // // alert(result);
+    // // alert(jQuery.parseJSON(JSON.stringify(result)).toString());
+    // // alert(JSON.parse(result));
+    // // alert(result["result"].user);
+    // // alert(result.data);
+    // // alert(result.data.result);
+    // // alert(result.data.result[0]);
+    // for (var i = result.data.result.length-1; i > result.data.result.length-8; i--) {
+    //     tweetsString += renderMovie(result, i);
+    // }
+    // // alert(JSON.stringify(result));
+    // // alert(result.data.result.user);
 
-    $tweetStart.html(tweetsString);
+    // $tweetStart.html(tweetsString);
 
     $(document).on('click', '#create', handleCreateTweet);
     // $(document).on('click', '#signOut', signOut);

@@ -209,6 +209,28 @@ export const postHTML = function(){
 }
 
 
+const createTodo = async ({name = '', user = '', body = '', likes = 0, date = new Date().getTime()} = {}) => {
+    return (await axios.post('http://localhost:3000/private/movie', {
+      data: {
+        name, user, body, likes, date
+      },
+     type: 'merge'
+    })).data.result.posted;
+  };
+
+const handlePost = async function() {
+   
+        const name = "";
+        const user = sessionStorage.getItem('user');
+        const body = `Meet ${name}, she is a ${career}!  This holiday season, she's been thinking about how she has been ${relstat}. Recently, she just received news that ${conflict}.  Will she be able to have a happy holiday, ${tradition}? Watch tonight to find out!`;
+        const likes = 0;
+       // const description = e.target.description.value;
+       
+        let todos = (await createTodo({name, user, body, likes}));
+
+        window.location.href='privatetwitter.html';
+}
+
 /*
 // complete render
 */
@@ -222,8 +244,11 @@ export const renderHome = function() {
     $(document).on("click",".conflictButton",handleConflict);
     $(document).on("click",".traditionButton",handleTradition);
     $(document).on("click",".createButton",handleCreate);
-    $(document).on("click",".createButton",postHTML)
+    $(document).on("click",".createButton",postHTML);
+    $(document).on("click",".postButton",handlePost);
+
 }
+
 
 
 $(function() {
