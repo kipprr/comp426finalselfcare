@@ -13,57 +13,43 @@
   }
     </style>
 <body>
+  <section class="level">
+      <div class="level-left"></div>
+    <div class="level-right" style="padding: 10px">
+        <button class="button is-success is-light level-item" style="padding: 0px 20px" onclick="window.location.href = 'SignUp.html';">Sign Up </button>
+        <button class="button is-success level-item" style="padding: 0px 20px" onclick="window.location.href = 'Login.html';">Login </button>
+    </div>
+  </section>
+
   <div class = "container">
       <img src="images/sloth.gif" />
   </div>
 
-<div>
-    <!-- <nav class="level">
-        <div class="level-left">
-          <div class="level-item">
-              <div><img src="images/sloth.gif" /></div>
-          </div>
-        </div>
-        <div class="level-right">
-            <button class="button level-item is-light" id="try it" style="padding: 0px 20px" onclick="window.location.href = 'publictwitter.html';">Try Out Our Feed!</button>
-            </div>
-      </nav> -->
-
-      
-
-
-    <div class="container has-background-white" style="padding-top: 10px" >
+  <div class="container has-background-white" style="padding-top: 10px" >
       <div style="padding-bottom: 0px">
-        <p class="title is-1 is-center" id="demo">sltoh</p>
-      <p class="subtitle is-3 is-center" style="font-family: fantasy">Send Love Over The Holiday!</p>
-    </div>
-     <div class="container" style="padding: 10px">
-      <button class="button is-success is-light" style="padding: 0px 20px" onclick="window.location.href = 'SignUp.html';">Sign Up </button>
-      <button class="button is-success" style="padding: 0px 20px" onclick="window.location.href = 'Login.html';">Login </button> -->
-    </div>
+        <button class="button is-dark is-outlined" style="padding: 0px 20px" id="continue">Continue</button>
+  </div>
+  </div>
 
 
-  <!-- The core Firebase JS SDK is always required and must be listed first 
-  <script src="/__/firebase/7.5.0/firebase-app.js"></script>-->
+  <div class="container has-background-white" style="padding-top: 100px; padding-bottom: 1000px" >
+      <div style="padding-bottom: 0px">
+        <div id="app" style="color: black"></div>
+  </div>
+</div>
 
+  <div id="scroll"></div>
+  
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries 
-    <script src="/__/firebase/7.5.0/firebase-analytics.js"></script>-->
-
-
-<!-- Initialize Firebase 
-<script src="/__/firebase/init.js"></script>-->
 
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="renderIndex2.js"></script>
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-  
-  <!--<script src="render.js" type="module"></script>-->
-  </div>
+    <script src="node_modules/typewriter-effect/dist/core.js"></script>
+    <script src="renderIndex2.js" type="module"></script>
+    
+
   
 </body>
 </html>
