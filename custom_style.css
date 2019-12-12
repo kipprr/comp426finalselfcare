@@ -6,7 +6,9 @@ were needed. You do not need to edit this file or use it in any way.
  html, body{
     height: 100%;
     font-size: 1.1em;
-    background-color: #fafafa;
+    background-color: #fafafa; 
+  scroll-behavior: smooth;
+
 }
 hr{
     background-color: #e6e6e4;
