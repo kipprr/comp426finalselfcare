@@ -21,7 +21,7 @@ const renderMovie = function(movie, i) {
                   <p class="title is-4 tweetName">${movie.data.result[i].user}</p>
                 </div>
             </div>
-            <div class="container tweetText" style="padding-left: 25px; padding-right: 20px; padding-bottom: 0px; padding-top: 0px">
+            <div class="container tweetText" id="${movie.data.result[i].date}body"style="padding-left: 25px; padding-right: 20px; padding-bottom: 0px; padding-top: 0px">
             ${movie.data.result[i].body}
             </div>
             <div class="container" style="padding-left: 25px; padding-bottom: 20px; padding-top: 10px; padding-right: 20px">
@@ -211,21 +211,24 @@ const handleUnLikeTweet = async function() {
 
 
 const handleDelete = async function() {
+  
     let numId = parseInt(event.target.id, 10);
-    const result = await axios({
-        method: 'delete',
-        url: `https://comp426fa19.cs.unc.edu/a09/tweets/${numId}`,
-        withCredentials: true,
-      });
+    // alert(event.target.id);
+    // alert(numId);
+    // const result = await axios({
+    //     method: 'delete',
+    //     url: `https://comp426fa19.cs.unc.edu/a09/tweets/${numId}`,
+    //     withCredentials: true,
+    //   });
     
     $(`#${numId}`).remove();
 };
 
 const handleEdit = async function() {
     currentTweetForEdit = parseInt(event.target.id, 10);
-    document.getElementById("editTweetBody").defaultValue = $(`#${currentTweetForEdit}tweetText`).text();
+    //document.getElementById("editTweetBody").defaultValue = $(`#${currentTweetForEdit}tweetText`).text();
     $('#editTweetModal').addClass("is-active");
-    currentTweetForEdit = parseInt(event.target.id, 10);
+    //currentTweetForEdit = parseInt(event.target.id, 10);
 };
 
 const handleEditCancel = async function() {
@@ -235,15 +238,15 @@ const handleEditCancel = async function() {
 const handleEditSubmit = async function() {
     var bodyValue = $('#editTweetBody').val();
     $('#editTweetModal').removeClass("is-active");
-       const result = await axios({
-        method: 'put',
-        url: `https://comp426fa19.cs.unc.edu/a09/tweets/${currentTweetForEdit}`,
-        withCredentials: true,
-        data: {
-          body: bodyValue
-        },
-      });
-    loadTweetsIntoDOM(); 
+      //  const result = await axios({
+      //   method: 'put',
+      //   url: `https://comp426fa19.cs.unc.edu/a09/tweets/${currentTweetForEdit}`,
+      //   withCredentials: true,
+      //   data: {
+      //     body: bodyValue
+      //   },
+      // });
+      document.getElementById(`${currentTweetForEdit}body`).innerHTML = bodyValue;
   // $('#test').append(renderTweet(result.data));
 };
 
