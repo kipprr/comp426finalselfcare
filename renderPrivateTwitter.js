@@ -12,7 +12,43 @@ const getMovie = async function() {
 };
 
 const renderMovie = function(movie, i) {
-    return `<div class="container tweet" style="padding-bottom: 20px">
+    if(movie.data.result[i].user == sessionStorage.getItem('user')) {
+      // edit and delete button
+      return `<div class="container tweet" id="${movie.data.result[i].date}" style="padding-bottom: 20px">
+    <div class="card">
+            <div class="card-content" style="padding-bottom: 10px; padding-top: 20px">
+                <div class="media-content">
+                  <p class="title is-4 tweetName">${movie.data.result[i].user}</p>
+                </div>
+            </div>
+            <div class="container tweetText" style="padding-left: 25px; padding-right: 20px; padding-bottom: 0px; padding-top: 0px">
+            ${movie.data.result[i].body}
+            </div>
+            <div class="container" style="padding-left: 25px; padding-bottom: 20px; padding-top: 10px; padding-right: 20px">
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <figure class="image is-24x24" >
+                                    <img src="images/heart-empty-64.png"  alt="Not liked by you button" class="tweetLikeButton">
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                    <div class="level-item">
+                    <button class="button is-small is-light deleteButton" id="${movie.data.result[i].date}delete">Delete</button>
+                </div>
+                <div class="level-item">
+                        <button class="button is-small is-light editButton" id="${movie.data.result[i].date}edit" >Edit</button>
+                    </div>
+            </div>
+                        </div>
+
+                </div>
+            </div>
+          </div>
+</div>`;
+    } else {
+      return `<div class="container tweet" style="padding-bottom: 20px">
     <div class="card">
             <div class="card-content" style="padding-bottom: 10px; padding-top: 20px">
                 <div class="media-content">
@@ -41,6 +77,8 @@ const renderMovie = function(movie, i) {
             </div>
           </div>
 </div>`;
+    }
+    
 }
 
 const getTodos = async () => {
