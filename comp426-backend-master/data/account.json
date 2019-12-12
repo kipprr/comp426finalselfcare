@@ -78,6 +78,14 @@
     "bobby jo": {
       "passwordHash": "$2a$10$4gjfl.tsjc3UMN1lc3yI6uGeqtpKfDZYjCTBwpdxPUwFrwhhvNA7m",
       "data": "Masc"
+    },
+    "brennora": {
+      "passwordHash": "$2a$10$xfgR8i4IfAPy.WFg/ysSNe5oA9.W0IwtkZ12lO2r/ErlFP0u7FH2y",
+      "data": "Woman"
+    },
+    "charlie h": {
+      "passwordHash": "$2a$10$lExvsb7hCiSiaVEE9tCrmedDka5EnDE2sFr9hOiEUChZ7FHUW3K0a",
+      "data": "Man"
     }
   }
 }
