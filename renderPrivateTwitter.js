@@ -65,11 +65,13 @@ const getTodos = async () => {
       data: {
         name, user, body, likes, date
       },
-     type: 'merge',
-     withCredentials: true, 
-     headers: { Authorization: `Bearer ${sessionStorage.getItem('jwt')}` }
-    })).data.result.posted;
+      type: 'merge'},
+     {headers: { 'Authorization': "Bearer " + sessionStorage.getItem('jwt') }},
+     
+    )).data.result.posted;
   };
+
+  //axios.post("http://localhost:3000/private/fav/", {data: 123},{headers: { 'Authorization': "Bearer " + sessionStorage.getItem('jwt') }});
 
 
 const hoverLiked = function() {
@@ -107,8 +109,8 @@ const handleTweet = async function() {
        // const description = e.target.description.value;
        
         let todos = (await createTodo({name, user, body, likes}));
-        //if (props.onChange) props.onChange(todos);
-      //}}
+        
+       //axios.post("http://localhost:3000/private/fav/", {data: 123},{headers: { 'Authorization': "Bearer " + sessionStorage.getItem('jwt') }});
 
 
     // $.ajax({
@@ -216,31 +218,32 @@ const handleEditSubmit = async function() {
 // }
 
 const loadTweetsIntoDOM = async function() {
-    // $('#test').empty();
+    $('#test').empty();
 
-    // const $tweetStart = $('#tweets');
+    const $tweetStart = $('#tweets');
 
-    // const result = await axios({
-    //     method: 'get',
-    //     url: 'http://localhost:3000/private/movie',
-    //    // withCredentials: true,
-    // });
+    const result = await axios({
+        method: 'get',
+        url: 'http://localhost:3000/private/movie',
+        headers: { 'Authorization': "Bearer " + sessionStorage.getItem('jwt') }
+       // withCredentials: true,
+    });
 
-    // var tweetsString = '';
-    // // alert(result);
-    // // alert(jQuery.parseJSON(JSON.stringify(result)).toString());
-    // // alert(JSON.parse(result));
-    // // alert(result["result"].user);
-    // // alert(result.data);
-    // // alert(result.data.result);
-    // // alert(result.data.result[0]);
-    // for (var i = result.data.result.length-1; i > result.data.result.length-8; i--) {
-    //     tweetsString += renderMovie(result, i);
-    // }
-    // // alert(JSON.stringify(result));
-    // // alert(result.data.result.user);
+    var tweetsString = '';
+    // alert(result);
+    // alert(jQuery.parseJSON(JSON.stringify(result)).toString());
+    // alert(JSON.parse(result));
+    // alert(result["result"].user);
+    // alert(result.data);
+    // alert(result.data.result);
+    // alert(result.data.result[0]);
+    for (var i = result.data.result.length-1; i > result.data.result.length-8; i--) {
+        tweetsString += renderMovie(result, i);
+    }
+    // alert(JSON.stringify(result));
+    // alert(result.data.result.user);
 
-    // $tweetStart.html(tweetsString);
+    $tweetStart.html(tweetsString);
 
     $(document).on('click', '#create', handleCreateTweet);
     // $(document).on('click', '#signOut', signOut);

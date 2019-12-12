@@ -1,6 +1,24 @@
+var i = 0;
+var txt = 'Send Love Over The Holiday'; /* The text */
+var speed = 50; /* The speed/duration of the effect in milliseconds */
+
 
 $(function() 
 {
+
+  typewriter
+  .pauseFor(2500)
+  .typeString("🌷A simple yet powerful native javascript")
+  .pauseFor(300)
+  .deleteChars(10)
+  .typeString("<strong>JS</strong> plugin for a cool typewriter effect and ")
+  .typeString(
+    '<strong>only <span style="color: #27ae60;">5kb</span> Gzipped!</strong>'
+  )
+  .pauseFor(1000)
+  .start();
+
+  typeWriter();
   const $form = $('#accountinfo-form');
   const $message = $('#message3');
   //event.preventDefault();
@@ -40,6 +58,21 @@ function signOut()
   
 }
 
+const typewriter = new Typewriter($('#demo'), {
+  loop: true,
+  delay: 75,
+});
 
+
+
+
+
+function typeWriter() {
+  if (i < txt.length) {
+    $('#demo').innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
 
 
