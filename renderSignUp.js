@@ -3,6 +3,7 @@
 $(function() {
   const $form = $('#signup-form');
   const $message = $('#message');
+  // autocomplete(document.getElementById("myInput"),genders);
 
   $form.submit(function(event) {
     event.preventDefault();
@@ -87,3 +88,5 @@ $(function() {
         location.href=("Login.html")
     });
   }
+
+  

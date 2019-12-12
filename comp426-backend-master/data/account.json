@@ -63,32 +63,21 @@
     "berbre": {
       "passwordHash": "$2a$10$Fa71q1labuNHUF/H52u2QuSM72TruXKgi/FMKInxfn/9HOaBaRaP2"
     },
-    "kippreed": {
-      "passwordHash": "$2a$10$WCT4MwtbHAYP4W95JLiyleniQHnvTrQePK5Xf9kWEWMo4voTlF8gK"
-    },
-    "kippr": {
-      "passwordHash": "$2a$10$8rfeBuXtjT0i0tMUbzLih.HjfkV/HjDe7Ari4plMXLMAgdos4VTiK"
-    },
-    "executive director": {
-      "passwordHash": "$2a$10$tvwabVuP6zjtNfp7CkdcXutl.D0M8CKa1tJz5EZx9VAovGdzLk1w2"
-    },
-    "tsioo": {
-      "passwordHash": "$2a$10$xcgH9TnTIzEYaEmuxfocF.AdOvTU.TOzvLHM5xNCK5Pve9UqrqGcy"
-    },
-    "dfas": {
-      "passwordHash": "$2a$10$FiBwlFHZ/bV7frOgy6l.EuQHvfuY14XnIV46eTId3kJNSPcZHOZ9i"
-    },
     "tylar": {
-      "passwordHash": "$2a$10$TWpu1QNQNPJJ35Dqe/Sze.2KvGEqSjJzn.ojYhSLwD2/gap0SAwDO"
+      "passwordHash": "$2a$10$wBFfd1FZZoD1ANSJb71QAO0s3OyMpl8lu0ImprYOSWj5ZPNDK04GK"
     },
-    "zdfsdf": {
-      "passwordHash": "$2a$10$ZQyZgPn/WlkrszBqwQrzMO5oMjPtbWc6mluTsH5ww7UoxXCXdkJ6K"
+    "tylar watson": {
+      "passwordHash": "$2a$10$KICI6/YTZCHS3xu6n6YzD.A7OstKmNiiy5fM.TqOqz.EYszpzTFES"
     },
-    "kate": {
-      "passwordHash": "$2a$10$VjJ1K2oVfMWWOQJy7zq9SeSTjnpGfkLW4BhK2muu7LRnvI1zyPti."
+    "tylar2": {
+      "passwordHash": "$2a$10$/TapHMBjFbxDEzuIqheF3ufgXm4XrsbXbMPHxcSukVfMEBzmsN7wK"
     },
-    "yeet": {
-      "passwordHash": "$2a$10$88xkaHTEvZgIKDXhJzjv.es4GBPWoGarYniiE5nIo3JmoJyo4fN8O"
+    "tsion": {
+      "passwordHash": "$2a$10$XWxq1NbFlBiA5yYn2B0sj.Kn9fMn/Q1WPtimcnjON8hGQYAin07Nq"
+    },
+    "bobby jo": {
+      "passwordHash": "$2a$10$4gjfl.tsjc3UMN1lc3yI6uGeqtpKfDZYjCTBwpdxPUwFrwhhvNA7m",
+      "data": "Masc"
     }
   }
 }
