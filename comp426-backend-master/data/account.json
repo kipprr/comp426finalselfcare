@@ -63,14 +63,14 @@
     "berbre": {
       "passwordHash": "$2a$10$Fa71q1labuNHUF/H52u2QuSM72TruXKgi/FMKInxfn/9HOaBaRaP2"
     },
-    "tsion": {
-      "passwordHash": "$2a$10$PKxLQNTwM0cYtsyD6p8SBui4KJ3GJiWXSqvDkDT6iXWAR6SO1E1UG"
+    "kippreed": {
+      "passwordHash": "$2a$10$WCT4MwtbHAYP4W95JLiyleniQHnvTrQePK5Xf9kWEWMo4voTlF8gK"
     },
-    "tsioooo": {
-      "passwordHash": "$2a$10$hv.gHXh/TCagdzE04muvU.bsI.uWOTeVGKdhsBVLSZwDIHmxSz4Fa"
+    "kippr": {
+      "passwordHash": "$2a$10$8rfeBuXtjT0i0tMUbzLih.HjfkV/HjDe7Ari4plMXLMAgdos4VTiK"
     },
-    "dfgdz": {
-      "passwordHash": "$2a$10$0o2JsLpwHZjerv5v08nFYeMOBcwlZge3TxqACQm5X5jajNGHH4ajy"
+    "executive director": {
+      "passwordHash": "$2a$10$tvwabVuP6zjtNfp7CkdcXutl.D0M8CKa1tJz5EZx9VAovGdzLk1w2"
     },
     "tsioo": {
       "passwordHash": "$2a$10$xcgH9TnTIzEYaEmuxfocF.AdOvTU.TOzvLHM5xNCK5Pve9UqrqGcy"
@@ -86,6 +86,9 @@
     },
     "kate": {
       "passwordHash": "$2a$10$VjJ1K2oVfMWWOQJy7zq9SeSTjnpGfkLW4BhK2muu7LRnvI1zyPti."
+    },
+    "yeet": {
+      "passwordHash": "$2a$10$88xkaHTEvZgIKDXhJzjv.es4GBPWoGarYniiE5nIo3JmoJyo4fN8O"
     }
   }
 }
