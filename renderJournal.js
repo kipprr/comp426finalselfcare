@@ -1,4 +1,5 @@
-
+import Typewriter from 'typewriter-effect/dist/core';
+npm
 $(function() 
 {
   const $form = $('#accountinfo-form');
