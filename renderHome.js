@@ -92,7 +92,8 @@ export async function createHome(){
         </button>
         <br>
         <br>
-        <p class = "createText"> </p>
+        <div class = "createStory">
+        </div>
         <br>
     </div>
     `);
@@ -199,13 +200,27 @@ export const handleTradition = function() {
 }
 
 export const handleCreate = function() {
-    $('.createText').replaceWith(
-        `Meet ${name}, she is a ${career}!  This holiday season, she's been thinking about how she has been ${relstat}. Recently, she just received news that ${conflict}.  Will she be able to have a happy holiday, ${tradition}? Watch tonight to find out!`
+    $('.createStory').replaceWith(
+        `
+        <div>
+        <table class = "createTable">
+            <tbody>
+                <tr>
+                    <td style = "text-align: center; padding: 10px; border-color: red">
+                    <p class = "createText"> 
+                        Meet ${name}, she is a ${career}!  This holiday season, she's been thinking about how she has been ${relstat}. Recently, she just received news that ${conflict}.  Will she be able to have a happy holiday, ${tradition}? Watch tonight to find out!
+                    </p>
+                    </td>
+                <tr>
+            </tbody>
+        </table>
+        </div>
+        `
     );
 }
 
 export const postHTML = function(){
-    $('#root').append(`<br><button class = "button is-large postButton"> Post!</button>`);    
+    $('#root').append(`<br><button class = "button is-large postButton"> Post!</button><br><br><button class = "button is-large refreshButton" onClick="window.location.reload();">Try Again</button>`);    
 }
 
 
