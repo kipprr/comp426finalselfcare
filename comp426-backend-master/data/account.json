@@ -90,6 +90,26 @@
     "lacy": {
       "passwordHash": "$2a$10$4H2ecmhi11io70FjZYX8IevKNx5iO9Vz7xSmPPjT3BOtgg6GZp1BK",
       "data": "Woman"
+    },
+    "ollyoxxen": {
+      "passwordHash": "$2a$10$yB4IYZuMhVR6pWkjdMBiHexcvhlus5zwtdRW0.m9n.Lawd75Gs7oW",
+      "data": "Woman"
+    },
+    "tsionc": {
+      "passwordHash": "$2a$10$xpQ12eHrpy8bbn6I5cT9CuOg13CWRMsV1e6jgDt1/XFsIN1WVXsM2",
+      "data": "Woman"
+    },
+    "kippr": {
+      "passwordHash": "$2a$10$WdUxvZVCBdUZ/SdTOjU1w.VccCtMaTVfGpjpNgu1CwZLvM4r4w.h6",
+      "data": "Man"
+    },
+    "brennorac": {
+      "passwordHash": "$2a$10$5OCVs7hqF48j3a6JbvDmYe.//.dzOiLk3uO2Km9.ctb3lfirZuwq6",
+      "data": "Woman"
+    },
+    "movieman": {
+      "passwordHash": "$2a$10$oV5gieChRz3U6tgwY73PtOsAQBaUVOw5b0o8YRhI.LWFLDeRMEY.C",
+      "data": "Man"
     }
   }
 }
